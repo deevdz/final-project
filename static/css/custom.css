@@ -1,3 +1,182 @@
 html, body {
-  height: 100%;
+
+    /*font-family: 'Prata', serif;*/
+    overflow-x: initial;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    position:relative;
+    padding-bottom:350px;
+    z-index: -2;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a, button {
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+}
+
+a, a > * {
+    text-decoration: none;
+    outline: none !important;
+}
+
+button {
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    border:none;
+}
+
+input, button {
+    -webkit-appearance: none;
+    outline: none;
+}
+
+/* Navigation */
+
+/*------Style for Navigation-----*/
+.homepage-nav {
+  background:transparent /*rgba(57,47,35,0.9)*/;
+  margin: 25px auto;
+}
+
+.nav-link {
+  font-family:'Poppins', sans-serif;
+  font-size:18px;
+  font-weight: 300;
+}
+
+.navbar-light .navbar-nav .nav-link, .homepage-nav button a {
+  color:rgb(57,47,35)
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover, .homepage-nav button a:hover {
+  color:#7ab5a7;
+  text-decoration: none;
+}
+
+.nav-active {
+  color:#7ab5a7;
+}
+
+.navbar-light .navbar-toggler {
+  color: rgba(255,255,255,0.9);
+  border-color: rgba(255,255,255,0.9);
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(57, 47, 35, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+#navbardrop {
+  padding-top: 16px;
+}
+
+.dropdown-item {
+  font-family:'Poppins', sans-serif;
+  font-weight: 300;
+  color:#392f23;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+  color: #392f23;
+  text-decoration: none;
+  background-color: rgba(153,184,209,0.3);
+}
+
+.homepage-nav button {
+    background:transparent;
+    font-size: 20px;
+}
+
+[class*="btn"].nav-btn {
+  padding: 10px 22px 9px;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+  background: #7ab5a7;
+  display: inline-block;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: normal;
+  text-align: center;
+  line-height: 26px;
+}
+
+.main-content {
+    min-height:100vh;
+    background-color:#fff;
+}
+
+
+/* Footer styles */
+
+footer{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:350px;
+    background:#392f23;
+    color:#fff;
+    z-index:-1;
+    font-size: 0.85rem;
+}
+
+.footer-margin {
+    margin-top:60px;
+}
+
+.footer-heading {
+    text-transform: uppercase;
+    color:#99b8d1;
+    letter-spacing:1px;
+    font-size:0.75rem;
+}
+
+.btn-white {
+    color: #000;
+    background-color: #fff;
+    border-color: #fff;
+    text-transform: uppercase;
+    letter-spacing:1px;
+    font-size:0.9em;
+    border-radius: 0;
+}
+
+.form-control {
+    border-radius: 0;
+    background-color: transparent;
+}
+
+footer a {
+    color:#ffffff !important;
+    pointer:cursor;
+}
+
+footer a:hover {
+    color:#977844 !important;
+    text-decoration:none;
+}
+
+/* Marin Styles */
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.mt-80 {
+    margin-top: 80px;
+}
+.mb-80 {
+    margin-bottom: 80px;
 }
