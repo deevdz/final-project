@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block content %}
+  <!--blog Item Header Area -->
+  <div class="container-fluid">
+    <div id="post-header" class="page-header">
+      <div class="page-header-bg" style="background-image: url('{{blog.image.url}}'); background-position: 0px -71px;" data-stellar-background-ratio="0.5"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+          <div class="blog-category">
+          <a href="#">                  
+            {% for cat in blog.categories.all %}
+                <a href="{% url 'list_blog_by_category' cat.slug %}">{{cat.title}}</a>
+            {% endfor %}</a>
+          </div>
+          <h1>{{blog.title}}</h1>
+          <ul class="post-meta">
+          <li>{{blog.published | date:"F j, Y"}}</li>
+          <li><i class="lni-comment"></i> {{blog.comments.count}}</li>
+          <li><i class="lni-eye"></i> {{blog.views}} </li>
+          </ul>
+          </div>        
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 mt-40 mb-80">
+        <!--blog Item Content Area -->
+        <p>{{blog.content | safe}}</p>
+        <div class="post-nav mb-80">
+          {% if previous_blog.status == 'published' %}
+            <div class="prev-post">
+              <a class="post-img" href="{% url 'blog_detail' previous_blog.slug %}"><img src="{{previous_blog.image.url}}" alt=""></a>
+              <h3 class="post-title"><a href="{% url 'blog_detail' previous_blog.slug %}">{{previous_blog.title}}</a></h3>
+              <span><a href="{% url 'blog_detail' previous_blog.slug %}">Previous post</a></span>
+            </div>
+          {% else %}
+            <div class="prev-post" style="display:none;">
+              <span></span>
+            </div>
+          {% endif %}
+          {% if next_blog.status == 'published' %} 
+            <div class="next-post">
+              <a class="post-img" href="{% url 'blog_detail' next_blog.slug %}"><img src="{{next_blog.image.url}}" alt=""></a>
+              <h3 class="post-title"><a href="{% url 'blog_detail' next_blog.slug %}">{{next_blog.title}}</a></h3>
+              <span><a href="{% url 'blog_detail' next_blog.slug %}">Next post</a></span>
+            </div>
+          {% else %}
+          <div class="next-post" style="display:none;">
+            <span></span>
+          </div>
+          {% endif %}
+        </div>
+        <div class="post-comments mt-40 ">
+          <header class="post-comments-header">
+            <h3>Post Comments<span class="no-of-comments"> ({{blog.comments.count}}) </span></h3>
+          </header>
+          <div class="comment">
+          {% for comment in blog.get_comments %}
+            <div class="comment-header d-flex justify-content-between">
+              <div class="user d-flex align-items-center">
+                <div class="image">
+                  <i class="lni-user"></i>
+                </div>
+                <div class="title"><strong>{{ comment.user.username }}</strong><span class="date">{{ comment.timestamp|timesince }} ago</span></div>
+              </div>
+            </div>
+            <div class="comment-body">
+                <p>{{ comment.content }}</p>
+            </div>
+            {% empty %}
+            <div class="comment-body">
+                <p>No comments here :(</p>
+            </div>
+          {% endfor %}
+          </div>
+          {% if request.user.is_authenticated %}
+          <div class="add-comment">
+                  <header>
+                    <h3>Please type your comment below:</h3>
+                  </header>
+                  <form method="POST" id="comment-form" class="commenting-form" onsubmit='this.submit();this.reset();return false;'>
+                    {% csrf_token %}
+                    <div class="row">
+                      <div class="form-group col-md-12">
+                        {{ form }}
+                      </div>
+                      <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-teal">Submit Comment</button>
+                      </div>
+                    </div>
+                  </form>
+          </div>
+          {% else %}
+          <div class="add-comment">
+             <a href="{% url 'account_login' %}?next={% firstof request.path '/' %}" class="btn btn-primary">Login to comment</a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col-sm-12 offset-md-1 col-md-3 mt-40 mb-80">
+          {% include 'blogsidebar.html' %}
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}

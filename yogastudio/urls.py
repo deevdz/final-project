@@ -17,10 +17,15 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.static import serve
 from home.views import index, about
+from blog import urls as urls_blog
+from .settings import MEDIA_ROOT
 
 urlpatterns = [
+    url(r'^tinymce/', include('tinymce.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
     url(r'^about/', about, name='about'),
+    url(r'^blog/', include(urls_blog)),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}) 
 ]

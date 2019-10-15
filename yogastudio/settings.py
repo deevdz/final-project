@@ -43,10 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
+    'tinymce',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'home',
+    'blog',
 ]
 
 SITE_ID = 1
