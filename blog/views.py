@@ -65,6 +65,7 @@ def blog(request):
     paginator = Paginator(blog_items, 4)
     page_request_var = 'page'
     page = request.GET.get(page_request_var)
+    paginated_queryset = ''
     
     if blog_items:
         try:
