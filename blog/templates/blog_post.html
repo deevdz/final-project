@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-          <div class="blog-category">
+          <div class="post-category">
           <a href="#">                  
             {% for cat in blog.categories.all %}
                 <a href="{% url 'list_blog_by_category' cat.slug %}">{{cat.title}}</a>
@@ -16,7 +16,7 @@
           <h1>{{blog.title}}</h1>
           <ul class="post-meta">
           <li>{{blog.published | date:"F j, Y"}}</li>
-          <li><i class="lni-comment"></i> {{blog.comments.count}}</li>
+          <li><i class="lni-comment"></i> {{blog.get_comments.count}}</li>
           <li><i class="lni-eye"></i> {{blog.views}} </li>
           </ul>
           </div>        
@@ -55,7 +55,7 @@
         </div>
         <div class="post-comments mt-40 ">
           <header class="post-comments-header">
-            <h3>Post Comments<span class="no-of-comments"> ({{blog.comments.count}}) </span></h3>
+            <h3>Post Comments<span class="no-of-comments"> ({{blog.get_comments.count}}) </span></h3>
           </header>
           <div class="comment">
           {% for comment in blog.get_comments %}

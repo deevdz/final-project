@@ -12,7 +12,7 @@ class BlogAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('content', 'user', 'blog', 'timestamp')
+    list_display = ('content', 'user', 'blog', 'timestamp','approved')
 
 # Register your models here.
 admin.site.register(Category, CategoryAdmin)

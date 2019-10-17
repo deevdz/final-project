@@ -52,7 +52,7 @@ class Blog(models.Model):
         
     @property
     def get_comments(self):
-        return self.comments.all().order_by('-timestamp')
+        return self.comments.order_by('-timestamp').filter(approved=True)
 
 #Create comments for blog items
 class Comment(models.Model):

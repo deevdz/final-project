@@ -17,14 +17,17 @@ def search_blog(request):
             Q(content__icontains=query) |
             Q(tag__icontains=query)
         ).distinct()
+        count_published = queryset.count()
     else:
         queryset = Blog.objects.filter(status = 'published')
+        count_published = queryset.count()
         
     category_count = get_category_count()
     context = {
         'query':query,
         'queryset': queryset,
-        'category_count': category_count
+        'category_count': category_count,
+        'count_published': count_published
     }
     return render(request, 'search_blog.html', context)
 
@@ -38,10 +41,23 @@ def list_blog_by_category(request, slug):
     if slug:
         category = get_object_or_404(Category, slug=slug)
         blog_items = blog_items.filter(categories=category).distinct()
+        count_published = blog_items.count()
+        paginator = Paginator(blog_items, 4)
+        page_request_var = 'page'
+        page = request.GET.get(page_request_var)
+        paginated_queryset = ''
+    
+        if blog_items:
+            try:
+                paginated_queryset = paginator.page(page)
+            except PageNotAnInteger:
+                paginated_queryset = paginator.page(1)
+            except EmptyPage:
+                paginated_queryset = paginator.page(paginator.num_pages)
     
     context = {
         'categories': categories,
-        'queryset': blog_items,
+        'queryset': paginated_queryset,
         'category': category,
         'category_count': category_count
     }
@@ -95,7 +111,7 @@ def blog_detail(request, slug):
     blog.views += 1
     blog.save()
     category_count = get_category_count()
-
+    
     form = CommentForm(request.POST or None)
     
     if request.method == "POST":
@@ -121,7 +137,7 @@ def blog_detail(request, slug):
         'next_blog': next_blog,
         'previous_blog': previous_blog,
         'category_count' : category_count,
-        'form' : form
+        'form' : form,
     }
     
     return render(request, 'blog_post.html', context)
