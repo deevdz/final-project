@@ -7,7 +7,7 @@ class BlogForm(forms.ModelForm):
 
     class Meta:
         model = Blog
-        fields = ('title', 'slug', 'content', 'status', 'seo_title', 'seo_description',
+        fields = ('title', 'content', 'status', 'seo_title', 'seo_description',
         'tag', 'image', 'categories', 'featured', )
 
 

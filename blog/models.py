@@ -50,6 +50,12 @@ class Blog(models.Model):
     def get_absolute_url(self):
         return reverse('blog_detail', args=[self.slug])
         
+    def get_update_post_url(self):
+        return reverse('blog_update', args=[self.slug])
+        
+    def get_delete_post_url(self):
+        return reverse('blog_delete', args=[self.slug])        
+        
     @property
     def get_comments(self):
         return self.comments.order_by('-timestamp').filter(approved=True)

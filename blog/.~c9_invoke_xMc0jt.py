@@ -2,7 +2,6 @@ from django.db.models import Count, Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.utils import timezone
-from django.template.defaultfilters import slugify
 from .forms import CommentForm, BlogForm
 from .models import Blog, Category, Comment
 from django.views.generic import View, ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -144,42 +143,17 @@ def blog_detail(request, slug):
     return render(request, 'blog_post.html', context)
     
 def blog_create(request):
-    page_title = 'Create Blog Post'
-    form = BlogForm(request.POST or None, request.FILES or None)
+    form = BlogForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
-            form.instance.slug = slugify(form.instance.title)
-            form.instance.user = request.user
             form.save()
-            return redirect(reverse('blog_detail', kwargs={'slug': form.instance.slug
+            return(redirect(reverse('blog_detail', kwargs={'slug': form.instance.slug
             }))
-    
-    context = {
-        'page_title': page_title,
-        'form': form
-    }
     return render(request, 'blog_create.html', context)
             
 
-def blog_update(request, slug):  
-    page_title = 'Update Blog Post'
-    blog = get_object_or_404(Blog, slug=slug)
-    form = BlogForm(request.POST or None, request.FILES or None, instance=blog)
-    if request.method == 'POST':
-        if form.is_valid():
-            form.instance.slug = slugify(form.instance.title)
-            form.instance.user = request.user
-            form.save()
-            return redirect(reverse('blog_detail', kwargs={'slug': form.instance.slug
-            }))
-    
-    context = {
-        'page_title': page_title,
-        'form': form
-    }
-    return render(request, 'blog_create.html', context)
+def blog_update(request, slug):    
+    pass
 
 def blog_delete(request, slug):
-    blog = get_object_or_404(Blog, slug=slug)
-    blog.delete()
-    return redirect(reverse('blog'))
+    pass
