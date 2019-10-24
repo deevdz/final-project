@@ -468,6 +468,17 @@ ul.post-meta  {
     transition: color .2s ease-out;
 }
 
+.badge-purple {
+    color: #fff;
+    background-color: #9d6381;
+}
+
+.badge-purple:hover {
+    color: #fff;
+    background-color: #7ab5a7;
+    text-decoration:none;
+}
+
 /* Account Settings */
 #div_id_remember {
     display: none;

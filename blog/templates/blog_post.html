@@ -32,6 +32,11 @@
             {% endif %}        
         <!--blog Item Content Area -->
         <p>{{blog.content | safe}}</p>
+        <div style="display:flex">
+          {% for tag in blog.tags.all %}
+            <a href="{% url 'tagged' tag.slug %}" class="mr-1 badge badge-purple">#{{ tag }}</a>
+           {% endfor %}
+        </div>
         <div class="post-nav mb-80">
           {% if previous_blog.status == 'published' %}
             <div class="prev-post">

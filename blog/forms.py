@@ -10,7 +10,7 @@ class BlogForm(forms.ModelForm):
     class Meta:
         model = Blog
         fields = ('title', 'content', 'status', 'seo_title', 'seo_description',
-        'tag', 'image', 'categories', 'featured' )
+        'tags', 'image', 'categories', 'featured' )
 
 
 class CommentForm(forms.ModelForm):

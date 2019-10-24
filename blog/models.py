@@ -3,6 +3,7 @@ from django.conf import settings
 from django.utils import timezone
 from tinymce import HTMLField
 from django.urls import reverse
+from taggit.managers import TaggableManager
 
 # Create Categories for Blog Items with slugs
 class Category(models.Model):
@@ -38,7 +39,7 @@ class Blog(models.Model):
     seo_title = models.CharField(max_length=250, blank=True, null=True)
     seo_description = models.CharField(max_length=250, blank=True, null=True)
     views = models.IntegerField(default=0)
-    tag = models.CharField(max_length=30, blank=True, null=True)
+    tags = TaggableManager()
     image = models.ImageField(upload_to="img")
     featured = models.NullBooleanField(blank=False)
     categories = models.ManyToManyField(Category)

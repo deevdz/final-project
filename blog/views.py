@@ -5,6 +5,7 @@ from django.utils import timezone
 from django.template.defaultfilters import slugify
 from .forms import CommentForm, BlogForm
 from .models import Blog, Category, Comment
+from taggit.models import Tag
 from django.views.generic import View, ListView, DetailView, CreateView, UpdateView, DeleteView
 
 # Searching the Blog
@@ -15,8 +16,7 @@ def search_blog(request):
     if query:
         queryset = queryset.filter(
             Q(title__icontains=query) |
-            Q(content__icontains=query) |
-            Q(tag__icontains=query)
+            Q(content__icontains=query)
         ).distinct()
         count_published = queryset.count()
     else:
@@ -143,14 +143,43 @@ def blog_detail(request, slug):
     
     return render(request, 'blog_post.html', context)
     
+def tagged(request, slug):
+    tag = get_object_or_404(Tag, slug=slug)
+    # Filter posts by tag name  
+    blog_items = Blog.objects.filter(tags=tag, status='published')
+    count_tags = blog_items.count()
+    category_count = get_category_count()
+    paginator = Paginator(blog_items, 4)
+    page_request_var = 'page'
+    page = request.GET.get(page_request_var)
+    paginated_queryset = ''
+    
+    if blog_items:
+        try:
+            paginated_queryset = paginator.page(page)
+        except PageNotAnInteger:
+            paginated_queryset = paginator.page(1)
+        except EmptyPage:
+            paginated_queryset = paginator.page(paginator.num_pages)
+    
+    context = {
+        'tag':tag,
+        'queryset':paginated_queryset,
+        'category_count': category_count,
+        'count_tags': count_tags,
+    }
+    return render(request, 'tag_detail.html', context)
+    
 def blog_create(request):
     page_title = 'Create Blog Post'
     form = BlogForm(request.POST or None, request.FILES or None)
     if request.method == 'POST':
         if form.is_valid():
-            form.instance.slug = slugify(form.instance.title)
-            form.instance.user = request.user
-            form.save()
+            newpost = form.save(commit=False)
+            newpost.slug = slugify(newpost.title)
+            newpost.user = request.user
+            newpost.save()
+            form.save_m2m()
             return redirect(reverse('blog_detail', kwargs={'slug': form.instance.slug
             }))
     
@@ -166,10 +195,12 @@ def blog_update(request, slug):
     blog = get_object_or_404(Blog, slug=slug)
     form = BlogForm(request.POST or None, request.FILES or None, instance=blog)
     if request.method == 'POST':
-        if form.is_valid():
-            form.instance.slug = slugify(form.instance.title)
-            form.instance.user = request.user
-            form.save()
+         if form.is_valid():
+            newpost = form.save(commit=False)
+            newpost.slug = slugify(newpost.title)
+            newpost.user = request.user
+            newpost.save()
+            form.save_m2m()
             return redirect(reverse('blog_detail', kwargs={'slug': form.instance.slug
             }))
     
