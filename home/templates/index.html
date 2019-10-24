@@ -1,6 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Homepage</h1>
-    <p>Soufflé wafer bonbon icing powder macaroon gummi bears muffin gummies. Jelly sesame snaps marzipan danish pie chocolate cake danish. Carrot cake carrot cake bear claw liquorice sweet roll wafer halvah cake toffee. Liquorice bear claw lemon drops jelly-o bear claw danish lollipop pie. Jelly-o macaroon cheesecake jelly tootsie roll cupcake soufflé dessert cake. Topping chocolate cake candy canes cookie powder. Sweet lemon drops caramels lemon drops cookie pastry brownie. Tart marzipan marzipan muffin pie lollipop halvah chupa chups. Liquorice sweet sesame snaps candy canes sugar plum. Chocolate cake cotton candy fruitcake donut sesame snaps. Jelly beans cheesecake jelly beans pie liquorice. Tart cotton candy icing powder. Chocolate cake gummies chocolate bar powder topping.</p>
-    
+<div class="container-fluid" style="padding:0px">
+    <div class="page-section page-section-grey">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="homepage-title-content">
+                        <div class="section-pre-title">News</div>
+                        <h2 class="section-title">Latest from our Blog</h2>
+                    </div>
+                    <div class="row">
+                        {% for item in queryset %}
+                          <div class="col-md-4">
+                            <div class="post">
+                              <a class="post-img" href="{{ item.get_absolute_url }}"><img src="{{item.image.url}}" alt="{{item.title}}"></a>
+                              <div class="post-body">
+                                <div class="post-category">
+                                  {% for cat in item.categories.all %}
+                                    <a href="{% url 'list_blog_by_category' cat.slug %}">{{cat.title}}</a>
+                                  {% endfor %}
+                                </div>
+                                <h3 class="post-title"><a href="{{ item.get_absolute_url }}">{{item.title}}</a></h3>
+                                  <ul class="post-meta">
+                                    <li>{{item.published|date:"F j, Y"}}, <i class="lni-eye"></i> {{item.views}} </li>
+                                    <li class="blog-blurb">{{item.content|truncatewords:20 | safe}}</li>
+                                  </ul>
+                              </div>
+                            </div>
+                          </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
