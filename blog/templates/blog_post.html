@@ -8,9 +8,8 @@
         <div class="row">
           <div class="col-md-12">
             <div class="post-category">
-              <a href="#">                  
                 {% for cat in blog.categories.all %}
-                    <a href="{% url 'list_blog_by_category' cat.slug %}">{{cat.title}}</a>
+                    <a href="{% url 'list_blog_by_category' cat.slug %}">{{cat.title}}</a>, 
                 {% endfor %}</a>
               </div>
           <h1>{{blog.title}}</h1>
@@ -19,8 +18,6 @@
               <li><i class="lni-comment"></i> {{blog.get_comments.count}}</li>
               <li><i class="lni-eye"></i> {{blog.views}} </li>
             </ul>
-            <a href="{% url 'blog_update' slug=blog.slug %}">Update</a>
-            <a href="{% url 'blog_delete' slug=blog.slug%}">Delete</a>
           </div>        
         </div>
       </div>
@@ -29,6 +26,10 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-8 mt-40 mb-80">
+            {% if request.user.is_staff %}
+              <button class="btn btn-info blog-button"><i class="lni-spinner-arrow"></i> <a href="{% url 'blog_update' slug=blog.slug %}">Update Post</a></button>
+              <button class="btn btn-danger blog-button"><i class="lni-eraser"></i><a href="{% url 'blog_delete' slug=blog.slug%}">Delete Post</a></button>
+            {% endif %}        
         <!--blog Item Content Area -->
         <p>{{blog.content | safe}}</p>
         <div class="post-nav mb-80">
@@ -97,7 +98,7 @@
           </div>
           {% else %}
           <div class="add-comment">
-             <a href="{% url 'account_login' %}?next={% firstof request.path '/' %}" class="btn btn-primary">Login to comment</a>
+             <a href="{% url 'account_login' %}?next={% firstof request.path '/' %}" class="btn btn-teal">Login to comment</a>
           </div>
           {% endif %}
         </div>

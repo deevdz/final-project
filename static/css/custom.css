@@ -42,6 +42,11 @@ input, button {
     outline: none;
 }
 
+label {
+    font-size: 18px;
+    font-family: Poppins;
+}
+
 /* Navigation */
 
 /*------Style for Navigation-----*/
@@ -221,6 +226,11 @@ ul.post-meta  {
 .page-item:first-child .page-link, .page-item:last-child .page-link {
     border-radius: 50%;
     color:#7ab5a7;
+}
+
+.blog-button i,  .blog-button a{
+    color:#fff;
+    padding:1px;
 }
 
 .post-comments-header h3 {
@@ -458,6 +468,10 @@ ul.post-meta  {
     transition: color .2s ease-out;
 }
 
+/* Account Settings */
+#div_id_remember {
+    display: none;
+}
 
 /* Footer styles */
 
