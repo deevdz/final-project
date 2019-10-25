@@ -118,6 +118,38 @@ label {
   text-align: center;
   line-height: 26px;
 }
+
+#homepage-carousel {
+    width:100%;
+}
+
+.carousel-caption {
+    z-index: 10;
+    text-align: left;
+}
+
+.slider-left-aligned {
+    bottom: 30%;
+    left: 10%;
+}
+
+.slider-right-aligned {
+    bottom: 30%;
+    left: 50%;
+}
+
+.carousel-caption .section-pre-title {
+    color:#fff;
+}
+
+.carousel-caption .section-pre-title::before {
+    background: #fff;
+}
+
+.carousel-caption button a {
+    color:#fff;
+    text-transform: uppercase;
+}
 /* Page Content */
 .main-content {
     min-height:100vh;
