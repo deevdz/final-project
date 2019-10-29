@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
+    'polymorphic',
     'crispy_forms',
     'taggit',
     'tinymce',
@@ -51,6 +52,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'blog',
+    'products',
+    'cart',
+    'checkout'
 ]
 
 SITE_ID = 1

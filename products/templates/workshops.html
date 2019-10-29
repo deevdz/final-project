@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+    {% for events in workshop_events %}
+    {{events.title}}
+    <a href="#" class="btn btn-success">Add to Cart</a>
+    {% endfor %}
+</div>
+{% endblock %}
