@@ -564,6 +564,36 @@ ul.post-meta  {
     display: none;
 }
 
+/* Cart Page */
+.shop-cart {
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    border:0px;
+}
+
+.shop-cart table tr:first-child > th {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    color: #333;
+    background: #f1f1f1;
+    text-transform: uppercase;
+}
+
+
+.shop-cart tr th.product-col {
+    width: 450px;
+}
+
+.cart-change {
+    padding: 5px;
+    color: #333;
+    border: 1px solid;
+    border-radius: 50%;
+    margin: 5px 8px;
+    font-size: 10px;
+    font-weight: 300;
+}
+
 /* Footer styles */
 
 footer{

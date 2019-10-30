@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+	<!--News Layout-->
+    <div class="header-wrap">
+      <div class="container-fluid">
+        <h1 class="page-title">Cart</h1>
+      </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    {% if messages %}
+                      <ul class="messages">
+                        {% for message in messages %}
+                          <li class="{{ message.tags }}">{{ message }}</li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                    
+                    <div class="table-responsive shop-cart">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="product-col">Product</th>
+                                    <th scope="col" class="price-col">Price</th>
+                                    <th scope="col" class="qty-col">Quantity</th>
+                                    <th scope="col" class="total-price-col">Total Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for cart in carts %}
+                                <tr>
+                                    <td>{{ cart.item.title }}</td>
+                                    <td>{{ cart.item.price }}</td>
+                                    <td><a href="../add/{{ cart.item.slug }}"><i class="lni-plus cart-change"></i></a> {{ cart.quantity }} <a href="../remove/{{ cart.item.slug }}"><i class="lni-minus cart-change"></i></a></td>
+                                    <td>€ {{cart.get_total }}</td>
+                                </tr>
+                                {% endfor %}
+                                <!--<tr style="background:#fbfbfb;">
+                                    <td></td>
+                                    <td colspan="2">Total</td>
+                                    <td>€ </td>
+                                </tr>-->
+                            </tbody>
+                        </table>  
+                        <button class="btn btn-teal float-right">Proceed To Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
