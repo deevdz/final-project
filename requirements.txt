@@ -17,4 +17,5 @@ python-dateutil==2.6.1
 psycopg2-binary==2.8.3
 requests==2.18.4
 six==1.11.0
+stripe==2.38.0
 urllib3==1.22

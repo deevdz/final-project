@@ -1,14 +1,19 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
-from .models import Cart, Order
-from products.models import Product, Workshop
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404, redirect
+from django.views.generic import ListView
+from .models import OrderLineItem
+from products.models import Product
+from checkout.models import Order
 
 # Add to Cart View
+@login_required(login_url='/accounts/login/')
 def add_to_cart(request, slug):
     item = get_object_or_404(Product, slug=slug)
-    order_item, created = Cart.objects.get_or_create(
+    order_item, created = OrderLineItem.objects.get_or_create(
         item=item,
-        user=request.user
+        user=request.user,
+        purchased=False
     )
     order_qs = Order.objects.filter(user=request.user, ordered=False)
     if order_qs.exists():
@@ -17,23 +22,27 @@ def add_to_cart(request, slug):
         if order.orderitems.filter(item__slug=item.slug).exists():
             order_item.quantity += 1
             order_item.save()
-            messages.info(request, 'This item quantity was updated.')
-            return redirect('view_cart')
+            messages.info(request, f"{item.title} quantity has updated.")
+            return redirect("view_cart")
         else:
             order.orderitems.add(order_item)
-            messages.info(request, 'This item was added to your cart.')
-            return redirect('view_cart')
+            messages.info(request, f"{item.title} has added to your cart.")
+            return redirect("view_cart")
     else:
         order = Order.objects.create(
             user=request.user)
         order.orderitems.add(order_item)
-        messages.info(request, 'This item was added to your cart.')
-        return redirect('view_cart')
+        messages.info(request, f"{item.title} has added to your cart.")
+        return redirect("view_cart")
 
-#Remove from Cart
+
+
+
+# Remove item from cart
+@login_required(login_url='/accounts/login/')
 def remove_from_cart(request, slug):
     item = get_object_or_404(Product, slug=slug)
-    cart_qs = Cart.objects.filter(user=request.user, item=item)
+    cart_qs = OrderLineItem.objects.filter(user=request.user, item=item)
     if cart_qs.exists():
         cart = cart_qs[0]
         # Checking the cart quantity
@@ -50,32 +59,71 @@ def remove_from_cart(request, slug):
         order = order_qs[0]
         # check if the order item is in the order
         if order.orderitems.filter(item__slug=item.slug).exists():
-            order_item = Cart.objects.filter(
+            order_item = OrderLineItem.objects.filter(
                 item=item,
                 user=request.user,
             )[0]
             order.orderitems.remove(order_item)
-            messages.info(request, 'This item was removed from your cart.')
-            return redirect('view_cart')
+            messages.warning(request, "This item was removed from your cart.")
+            return redirect("view_cart")
         else:
-            messages.info(request, 'This item was not in your cart')
-            return redirect('view_cart')
+            messages.warning(request, "This item was not in your cart")
+            return redirect("view_cart")
     else:
-        messages.info(request, 'You do not have an active order')
-        return redirect('index')
-        
+        messages.warning(request, "You do not have an active order")
+        return redirect("view_cart")
+
+
 # Cart View
+@login_required(login_url='/accounts/login/')
 def view_cart(request):
 
     user = request.user
 
-    carts = Cart.objects.filter(user=user)
+    carts = OrderLineItem.objects.filter(user=user, purchased=False)
     orders = Order.objects.filter(user=user, ordered=False)
 
     if carts.exists():
-        order = orders[0]
-        return render(request, 'cart.html', {'carts': carts, 'order': order})
-		
+        if orders.exists():
+            order = orders[0]
+            return render(request, 'cart.html', {"carts": carts, 'order': order})
+        else:
+            messages.warning(request, "You do not have any item in your Cart")
+            return render(request, "cart.html")
     else:
-        messages.warning(request, 'You do not have an active order')
-        return redirect('index')
+        messages.warning(request, "You do not have any item in your Cart")
+        return render(request, "cart.html")
+
+
+
+# Decrease the quantity of the cart :
+@login_required(login_url='/accounts/login/')
+def decrease_cart(request, slug):
+    item = get_object_or_404(Product, slug=slug)
+    order_qs = Order.objects.filter(
+        user=request.user,
+        ordered=False
+    )
+    if order_qs.exists():
+        order = order_qs[0]
+        # check if the order item is in the order
+        if order.orderitems.filter(item__slug=item.slug).exists():
+            order_item = OrderLineItem.objects.filter(
+                item=item,
+                user=request.user
+            )[0]
+            if order_item.quantity > 1:
+                order_item.quantity -= 1
+                order_item.save()
+            else:
+                order.orderitems.remove(order_item)
+                order_item.delete()
+                messages.warning(request, f"{item.title} has removed from your cart.")
+            messages.info(request, f"{item.title} quantity has updated.")
+            return redirect("view_cart")
+        else:
+            messages.info(request, f"{item.title} quantity has updated.")
+            return redirect("view_cart")
+    else:
+        messages.info(request, "You do not have an active order")
+        return redirect("view_cart")

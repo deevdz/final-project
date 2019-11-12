@@ -594,6 +594,22 @@ ul.post-meta  {
     font-weight: 300;
 }
 
+.btn-purple {
+    color: #fff;
+    background-color: #9d6381;
+    border-color: #9d6381;
+    margin-right:10px;
+}
+
+.cart-dustbin {
+    display: inline-block;
+    width: 7%;
+}
+
+.cart-title {
+    display: inline;
+}
+
 /* Footer styles */
 
 footer{

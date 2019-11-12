@@ -32,21 +32,26 @@
                             <tbody>
                                 {% for cart in carts %}
                                 <tr>
-                                    <td>{{ cart.item.title }}</td>
-                                    <td>{{ cart.item.price }}</td>
-                                    <td><a href="../add/{{ cart.item.slug }}"><i class="lni-plus cart-change"></i></a> {{ cart.quantity }} <a href="../remove/{{ cart.item.slug }}"><i class="lni-minus cart-change"></i></a></td>
-                                    <td>€ {{cart.get_total }}</td>
+                                    <td><div class="cart-dustbin">{% if cart.quantity == 1 %}<a href="{% url 'remove_from_cart' slug=cart.item.slug %}"><i class="lni-trash"></i></a>{% endif %}</div><div class="cart-title">{{ cart.item.title }}</div></td>
+                                    <td>€ {{ cart.item.price | floatformat  }}</td>
+                                    <td><a href="{% url 'decrease_cart' slug=cart.item.slug %}"><i class="lni-minus cart-change"></i></a> {{ cart.quantity }} <a href="{% url 'add_to_cart' slug=cart.item.slug %}"><i class="lni-plus cart-change"></i></a> </td>
+                                    <td>€ {{cart.get_total | floatformat  }}</td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td>Your cart is empty</td>
                                 </tr>
                                 {% endfor %}
-                                <!--<tr style="background:#fbfbfb;">
+                                <tr style="background:#fbfbfb;">
                                     <td></td>
                                     <td colspan="2">Total</td>
-                                    <td>€ </td>
-                                </tr>-->
+                                    <td>€ {{ order.get_totals| floatformat }}</td>
+                                </tr>
                             </tbody>
                         </table>  
-                        <button class="btn btn-teal float-right">Proceed To Checkout</button>
-                    </div>
+                        {% if order %}<a href="{% url 'checkout' %}"><button class="btn btn-teal float-right">Proceed To Checkout</button></a>{% endif %}
+                        <a href="{% url 'workshops' %}"><button class="btn btn-purple float-right">Continue Shopping</button></a
+                        
                 </div>
             </div>
         </div>

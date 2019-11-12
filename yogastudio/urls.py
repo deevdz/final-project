@@ -18,8 +18,9 @@ from django.contrib import admin
 from django.views.static import serve
 from home.views import index, about
 from blog import urls as urls_blog
+from checkout.views import checkout, payment, charge, order_view
 from products.views import workshops
-from cart.views import add_to_cart, remove_from_cart, view_cart
+from cart.views import add_to_cart, decrease_cart, view_cart, remove_from_cart
 from .settings import MEDIA_ROOT
 
 urlpatterns = [
@@ -29,9 +30,14 @@ urlpatterns = [
     url(r'^about/', about, name='about'),
     url(r'^blog/', include(urls_blog)),
     url(r'^workshops/', workshops, name='workshops'),
-    url(r'^cart/', view_cart, name='view_cart'),    
+    url(r'^cart/', view_cart, name='view_cart'), 
     url(r'^add/(?P<slug>[-\w]+)/$', add_to_cart, name='add_to_cart'),
-    url(r'^remove/(?P<slug>[-\w]+)/$', remove_from_cart, name='remove_from_cart'),
+    url(r'^remove/(?P<slug>[-\w]+)/$', remove_from_cart, name='remove_from_cart'),     
+    url(r'^decrease/(?P<slug>[-\w]+)/$', decrease_cart, name='decrease_cart'),
+    url(r'^checkout/', checkout, name='checkout'),
+    url(r'^payment/', payment, name='payment'),
+    url(r'^charge/', charge, name='charge'),  
+    url(r'^orders/', order_view, name='order_view'),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}) 
 ]

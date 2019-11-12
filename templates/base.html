@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load cart_tag %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +19,8 @@
     <script src="{% static 'js/vanillatop.min.js' %}"></script>
     <script src="{% static 'js/tagsinput.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
+    {% block head_js %}
+    {% endblock head_js %}    
 </head>
 <body>
     <!--Site Navigation -->
@@ -84,7 +87,8 @@
                         </div>
                         </li>
                     </ul>
-                    <button type="button" class="cart-btn" style="margin-right:20px;"><a href="/cart/"><i class="lni-cart"></i></a></button>
+                    <button type="button" class="cart-btn" style="margin-right:20px;"><a href="/cart/"><i class="lni-cart"></i>
+                    {% if request.user.is_authenticated %}<span class="badge badge-light">{{ request.user| cart_total }}</span>{% endif %}</a></button>
                     <a href="#" class="nav-btn btn-big">Book Now</a>
                 </div>
         </nav>
