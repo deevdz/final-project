@@ -1,0 +1,31 @@
+<p>Thank you for your order. I can confirm that it has been successful.</p>
+
+<p>If you have ordered a gift voucher we will email you a pdf of your voucher shortly.</p>
+
+<p>If you have bought a classes package or a place on one of our workshops you can consider yourself signed up.</p>
+
+<h4>Your order is as follows:</h4>
+
+<div class="table-responsive">
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th scope="col" style="text-align:left; color:#9d6381; width:220px;">Order Id</th>
+			      <th scope="col" style="text-align:left; color:#9d6381;">Products Purchased</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    
+			    
+			    <tr>
+			      <td style="text-align:left" valign="top">{{ orders.orderId }}</td>
+			      <td style="text-align:left">
+			      	{% for item in orders.orderitems.all %}
+			      		{{ item }}
+			      		<br>
+			      	{% endfor %}
+			      </td>
+			  	</tr>
+			    
+			  </tbody>
+			</table>
