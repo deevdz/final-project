@@ -12,7 +12,8 @@ class OrderLineItem(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.quantity} of {self.item.title}"
+        orderline = f"{self.quantity} of {self.item.title}"
+        return orderline
 
     def get_total(self):
         total = self.item.price * self.quantity

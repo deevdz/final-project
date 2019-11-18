@@ -38,14 +38,12 @@ class TestBlogViews(TestCase):
     def test_get_blog_post_page(self):
         test = Blog.objects.create(title='Test Blog', slug='testing-2',featured=True,user_id=1,image='test.png',)
         page = self.client.get(reverse('blog_detail', args=(test.slug,)))
-        #print('Response content : ' + str(page.content))
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, 'blog_post.html') 
         
     def test_get_category_page(self):
         test = Category.objects.create(title='Test Category', slug='health',)
         page = self.client.get(reverse('list_blog_by_category', args=(test.slug,)))
-        #print('Response content : ' + str(page.content))
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, 'category_detail.html')   
      
