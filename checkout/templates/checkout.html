@@ -29,61 +29,72 @@
                           <li class="{{ message.tags }}">{{ message }}</li>
                         {% endfor %}
                       </ul>
-                    {% endif %}                    
-                    {% for item in order_items %}
-                        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-                            <div class="panel-body">
-                                <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
-                
-                                <div class="caption">
-                                    <h3>{{ item.item.title }}</h3>
-                                    <p class="product-qty">{{ item.quantity }}</p>
-                                    <p class="product-price">{{ item.item.price }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
+                    {% endif %}
+                     <div class="table-responsive shop-cart">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="product-col">Product</th>
+                                    <th scope="col" class="qty-col">Quantity</th>
+                                    <th scope="col" class="price-col">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>                    
+                            {% for item in order_items %}
+                            <tr>
+                                <td><div class="cart-title">{{ item.item.title }}</div></td>
+                                <td>{{ item.quantity }}</td>
+                                <td>€ {{ item.item.price | floatformat  }}</td>
+                            </tr>
+                            {% endfor %}
+                            <tr style="background:#fbfbfb;">
+                                <td></td>
+                                <td>Total</td>
+                                <td>€ {{ order_total | floatformat }}</td>
+                             </tr>
+                        </tbody>
+                    </table>  
+                </div>
                 </div>
                 <div class="row">
-                    <p>Total</p>
-                    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ order_total | floatformat:2 }}</p>
+                    {% if savedAddress %}
+                    <div class="col-sm-12 col-md-6">
+                        <div class="row">
+                          <legend>Use Saved Address</legend>
+                          <div style="height: auto">
+                            <div>
+                                <p><strong>Full Name:</strong> {{ savedAddress.full_name }}</p>
+                                <p><strong>Phone Number:</strong> {{ savedAddress.phone_number }}</p>
+                                <p><strong>Address:</strong> {{ savedAddress.address_line_1 }}, {{ savedAddress.address_line_2 }}, {{ savedAddress.town }},
+                                {{ savedAddress.county }}, {{ savedAddress.postcode }}</p>
+                            </div>
+                            <div>
+                               <a href="{% url 'payment' %}" class="btn btn-purple float-right">Proceed to Checkout with Saved Address</a>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    {% endif %}                    
+                    <div class="col-sm-12 col-md-6">
+                        <div class="row">
+                        <form method="post">
+                            <legend>Billing Address</legend>
+                            <div id="credit-card-errors" style="display: none;">
+                                <div id="alert-message block-message error" id="stripe-error-message"></div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                {% csrf_token %}
+                                {{ form | as_bootstrap }}
+                            </div>
+                            <div class="form-group col-md-12">
+                                <button type="submit" class="btn btn-teal float-right">Proceed to Payment</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
                 </div>
-                
-                <form method="post">
-                    <legend>Payment Details</legend>
-                
-                    <div id="credit-card-errors" style="display: none;">
-                        <div id="alert-message block-message error" id="stripe-error-message"></div>
-                    </div>
-                
-                    <div class="form-group col-md-6">
-                        {% csrf_token %}
-                        {{ form | as_bootstrap }}
-                    </div>
-
-                    <div class="form-group col-md-12">
-                        <button type="submit" class="btn btn-primary float-right">Proceed to Payment</button>
-                                          
-                    </div>
-                </form>
-                
-                {% if savedAddress %}
-      <h4>Saved Address</h4>
-      <div class="card mb-5" style="height: auto">
-        <div class="card-body">
-          <p><b>Address :</b> {{ savedAddress.address_line_1 }}</p>
-          <p><b>City :</b> {{ savedAddress.city }}</p>
-          <p><b>Zipcode :</b> {{ savedAddress.zipcode }}</p>
-          <p><b>Landmark :</b> {{ savedAddress.landmark }}</p>
-        </div>
-        <div class="card-body">
-           <a href="{% url 'payment' %}" class="btn btn-primary float-right">Proceed to Checkout with the saved Address</a>
-        </div>
-      </div>
-      {% endif %}
             </div>
         </div>
-    </div>
     </div>
 </div>
 {% endblock %}
