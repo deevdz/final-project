@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.static import serve
-from home.views import index, about
+from home.views import index, about, contact
 from blog import urls as urls_blog
 from products import urls as urls_products
 from checkout.views import checkout, payment, charge, order_view
@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
     url(r'^about/', about, name='about'),
+    url(r'^contact/', contact, name='contact'),
     url(r'^blog/', include(urls_blog)),
     url(r'^workshops/', include(urls_products)),
     url(r'^shop/', products, name='products'),

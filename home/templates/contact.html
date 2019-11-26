@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+{% block content %}
+<div class="container-fluid">
+	<!--News Layout-->
+    <div class="header-wrap">
+      <div class="container-fluid">
+        <h1 class="page-title">Contact</h1>
+      </div>
+    </div>
+    <div class="container mb-5">
+      {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      
+        <form role="form" action="" method="post">
+            {% csrf_token %}
+            {{ form | as_bootstrap }}
+            <button type="submit" class="btn btn-teal">Submit</button>
+        </form>
+    </div>        
+</div>
+{% endblock %}
