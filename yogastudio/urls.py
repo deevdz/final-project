@@ -18,8 +18,9 @@ from django.contrib import admin
 from django.views.static import serve
 from home.views import index, about
 from blog import urls as urls_blog
+from products import urls as urls_products
 from checkout.views import checkout, payment, charge, order_view
-from products.views import workshops
+from products.views import products
 from cart.views import add_to_cart, decrease_cart, view_cart, remove_from_cart
 from .settings import MEDIA_ROOT
 
@@ -29,7 +30,8 @@ urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^about/', about, name='about'),
     url(r'^blog/', include(urls_blog)),
-    url(r'^workshops/', workshops, name='workshops'),
+    url(r'^workshops/', include(urls_products)),
+    url(r'^shop/', products, name='products'),
     url(r'^cart/', view_cart, name='view_cart'), 
     url(r'^add/(?P<slug>[-\w]+)/$', add_to_cart, name='add_to_cart'),
     url(r'^remove/(?P<slug>[-\w]+)/$', remove_from_cart, name='remove_from_cart'),     

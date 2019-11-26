@@ -206,9 +206,16 @@ label {
 
 .homepage-title-content h2 {
     font-size: 48px;
-    line-height: 56px;
+    line-height: 72px;
     letter-spacing: -0.1px;
     font-family: Prata;
+}
+
+/*Workshop Page */
+.workshop-box {
+    background:#fafafa;
+    border-radius: 2px;
+    padding: 20px;
 }
 
 /* Blog Items */
@@ -557,6 +564,34 @@ ul.post-meta  {
     color: #fff;
     background-color: #7ab5a7;
     text-decoration:none;
+}
+
+/* Shop Page */
+.shop-item{
+    border: 2px solid #9d6381;
+    padding: 20px;
+    display: inline;
+    background:#f9f9f9;
+    margin:10px;
+}
+
+.shop-item h4 {
+    font-family: Prata;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.shop-item p {
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.shop-item a:hover {
+    color:#fff;
+}
+
+.shop-item img {
+    width:100%;
 }
 
 /* Account Settings */

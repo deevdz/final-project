@@ -11,9 +11,10 @@ from .models import Product, Workshop
 class TestProductModel(TestCase):
 
     def test_can_create_a_product(self):
-        product = Product(title='Create a Test Product', description='This is a test product', status='DRAFT', price=25.00, user_id=1)
+        product = Product(product_type= 'voucher', title='Create a Test Product', description='This is a test product', status='DRAFT', price=25.00, user_id=1)
         user = get_user_model().objects.create(username='testuser')
         product.save()
+        self.assertEqual(product.product_type, 'voucher')
         self.assertEqual(product.title, 'Create a Test Product')
         self.assertEqual(product.description, 'This is a test product')
         self.assertEqual(product.status, 'DRAFT')
@@ -22,10 +23,11 @@ class TestProductModel(TestCase):
 
     def test_can_create_a_product_workshop(self):
         user = get_user_model().objects.create(username='testuser')
-        workshop = Workshop(title='Create a Test Product', description='This is a test product', 
+        workshop = Workshop(product_type= 'workshop', title='Create a Test Product', description='This is a test product', 
             status='DRAFT', price=25.00, user_id=1, workshop_location='headford', 
             workshop_start_date=datetime.now(), workshop_start_time=datetime.now(), workshop_end_time=datetime.now(),)
         workshop.save()
+        self.assertEqual(workshop.product_type, 'workshop')
         self.assertEqual(workshop.title, 'Create a Test Product')
         self.assertEqual(workshop.description, 'This is a test product')
         self.assertEqual(workshop.status, 'DRAFT')

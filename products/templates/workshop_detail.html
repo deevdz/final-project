@@ -4,7 +4,7 @@
 	<!--News Layout-->
     <div class="header-wrap">
       <div class="container-fluid">
-        <h1 class="page-title">Workshops</h1>
+        <h1 class="page-title">Test</h1>
       </div>
     </div>
     <div class="container mb-5">
@@ -25,7 +25,7 @@
                         <h4>{{events.title}} - &euro;{{events.price}}</h4>
                         <i class="lni-timer">{{events.workshop_start_date|date:"M d, Y"}}, {{events.workshop_start_time}}</i><i class="lni-map-marker"></i> {{events.workshop_location}}
                         <p>{{events.description|truncatewords:30 | safe}}</p>
-                        <a href="{{ events.get_absolute_url }}" class="btn btn-teal">More details</a>
+                        <a href="../add/{{ events.slug }}" class="btn btn-teal">More details</a>
                         <!--<a href="../add/{{ events.slug }}" class="btn btn-success">Add to Cart</a>-->
                     </div>
                 </div>                

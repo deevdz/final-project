@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+	<!--News Layout-->
+    <div class="header-wrap">
+      <div class="container-fluid">
+        <h1 class="page-title">Shop</h1>
+      </div>
+    </div>
+    <div class="container mb-5">
+    <div class="row">
+            <div class="homepage-title-content">
+                <div class="section-pre-title">Get Active</div>
+                    <h2 class="section-title">Class Passes</h2>
+                </div>
+      </div>
+    <div class="row mb-5">
+      {% for item in all_classes %}
+        <div class="col-md-4 shop-item">
+          <img src="{{item.image.url}}" alt="{{item.title}}">
+          <h4>{{item.title}}</h4>
+          <p>{{item.description | safe}}</p>
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <p><strong>Price: €{{item.price}}</strong></p>
+            </div>
+            <div class="col-md-6">
+              <a href="../add/{{ item.slug }}" class="btn btn-purple">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      {% empty %}
+      <p>We currently have no vouchers available for purchase. Please check back again soon.</p>
+      {% endfor %}
+      </div>
+    <div class="row">
+            <div class="homepage-title-content">
+                <div class="section-pre-title">Stuck for Ideas</div>
+                    <h2 class="section-title">Gift Vouchers</h2>
+                </div>
+      </div>      
+    <div class="row  mb-5">
+      {% for item in all_vouchers %}
+        <div class="col-md-4 shop-item">
+          <img src="{{item.image.url}}" alt="{{item.title}}">
+          <h4>{{item.title}}</h4>
+          <p>{{item.description | safe}}</p>
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <p><strong>Price: €{{item.price}}</strong></p>
+            </div>
+            <div class="col-md-6">
+              <a href="../add/{{ item.slug }}" class="btn btn-purple">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      {% empty %}
+      <p>We currently have no vouchers available for purchase. Please check back again soon.</p>
+      {% endfor %}
+      </div>                
+    </div>
+</div>
+{% endblock %}

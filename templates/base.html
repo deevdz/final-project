@@ -89,7 +89,7 @@
                     </ul>
                     <button type="button" class="cart-btn" style="margin-right:20px;"><a href="/cart/"><i class="lni-cart"></i>
                     {% if request.user.is_authenticated %}<span class="badge badge-light">{{ request.user| cart_total }}</span>{% endif %}</a></button>
-                    <a href="#" class="nav-btn btn-big">Book Now</a>
+                    <a href="/shop" class="nav-btn btn-big">Shop</a>
                 </div>
         </nav>
     <header></header>

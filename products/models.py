@@ -9,12 +9,19 @@ from polymorphic.models import PolymorphicModel
 # Create your models here.
 
 class Product(PolymorphicModel):
+    
+    PRODUCT_TYPES = (
+        ('voucher', 'Gift Voucher'),
+        ('workshop','Workshop'),
+        ('class','Class'),
+        ('product','Product'),
+        )
 
     STATUS_CHOICES = (
         ('draft', 'Draft'),
         ('published','Published'),
         )
-    
+    product_type = models.CharField(max_length=20, choices=PRODUCT_TYPES, default='product')
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=250, unique=True)
     description = HTMLField()
@@ -43,10 +50,10 @@ class Workshop(Product):
     workshop_start_time = models.TimeField(blank=True)
     workshop_end_time = models.TimeField(blank=True)
     available_places = models.IntegerField(default=10)
-    workshop_location = models.CharField(max_length=940, choices=WORKSHOP_LOCATIONS, default='headford')
+    workshop_location = models.CharField(max_length=940, choices=WORKSHOP_LOCATIONS, default='Headford Wellbeing Centre')
     
     def __str__(self):
         return self.title
         
     def get_absolute_url(self):
-        return reverse('workshops', args=[self.slug])
+        return reverse('workshop_detail', args=[self.slug])
