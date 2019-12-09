@@ -96,8 +96,10 @@ def charge(request):
 				item.save()
 				products = Product.objects.get(id=item.item_id)
 				#print('Product:' + str(products))
-				if products.available_places > 0:
+				if (products.product_type == 'workshop') and (products.available_places > 0):
 					products.available_places = int(products.available_places - item.quantity)
+					products.save()
+				else:
 					products.save()
 			orders = Order.objects.filter(user=request.user, ordered=True).order_by('-pk')[0]
 			subject = 'Order Confirmation'

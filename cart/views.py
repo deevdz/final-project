@@ -16,14 +16,24 @@ def add_to_cart(request, slug):
         purchased=False
     )
     order_qs = Order.objects.filter(user=request.user, ordered=False)
+    print ('Type:' +str(item.product_type))
     if order_qs.exists():
         order = order_qs[0]
         # check if the order item is in the order
         if order.orderitems.filter(item__slug=item.slug).exists():
-            order_item.quantity += 1
-            order_item.save()
-            messages.info(request, f"{item.title} quantity has updated.")
-            return redirect("view_cart")
+            if (item.product_type != 'workshop'):
+                order_item.quantity += 1
+                order_item.save()
+                messages.info(request, f"{item.title} quantity has updated.")
+                return redirect("view_cart")                
+            elif (item.product_type == 'workshop') and (item.available_places <= order_item.quantity):
+                messages.info(request, f"There are not enough available places on this workshop - {item.title}")
+                return redirect("view_cart")
+            elif (item.product_type == 'workshop') and item.available_places > order_item.quantity:
+                order_item.quantity += 1
+                order_item.save()
+                messages.info(request, f"{item.title} quantity has updated.{item.available_places}")
+                return redirect("view_cart")
         else:
             order.orderitems.add(order_item)
             messages.info(request, f"{item.title} has added to your cart.")
