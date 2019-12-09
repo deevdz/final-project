@@ -150,6 +150,32 @@ label {
     color:#fff;
     text-transform: uppercase;
 }
+
+.homepage-info-box-1 {
+    background: url('https://deevdzfinalproject.s3-eu-west-1.amazonaws.com/static/img/homepage-new-to-yoga.png') no-repeat;
+    background-size: auto;
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+}
+
+.homepage-info-box-2 {
+    background: url('https://deevdzfinalproject.s3-eu-west-1.amazonaws.com/static/img/homepage-inside-our-centre.png') no-repeat;
+    background-size: auto;
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+}
+.homepage-info-box-3 {
+    background: url('https://deevdzfinalproject.s3-eu-west-1.amazonaws.com/static/img/homepage-classes.png') no-repeat;
+    background-size: auto;
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+}
+
+
+
 /* Page Content */
 .main-content {
     min-height:100vh;
@@ -216,6 +242,15 @@ label {
     background:#fafafa;
     border-radius: 2px;
     padding: 20px;
+}
+
+.purple-icon {
+    color:#9d6381;
+}
+
+.workshop-detail-image {
+    height:300px;
+    width:100%;
 }
 
 /* Blog Items */

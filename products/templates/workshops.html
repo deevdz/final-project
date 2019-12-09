@@ -8,12 +8,6 @@
       </div>
     </div>
     <div class="container mb-5">
-        <div class="row">
-            <div class="homepage-title-content">
-                <div class="section-pre-title">Don't miss out</div>
-                    <h2 class="section-title">Upcoming Workshops</h2>
-                </div>
-        </div>
         {% for events in workshop_events %}
         <div class="row">
             <div class="col-sm-12 workshop-box">
@@ -23,7 +17,7 @@
                     </div>
                     <div class="cols-sm-6 col-md-8">
                         <h4>{{events.title}} - &euro;{{events.price}}</h4>
-                        <i class="lni-timer">{{events.workshop_start_date|date:"M d, Y"}}, {{events.workshop_start_time}}</i><i class="lni-map-marker"></i> {{events.workshop_location}}
+                        <i class="lni-timer purple-icon"></i> {{events.workshop_start_date|date:"M d, Y"}}, {{events.workshop_start_time}}<i class="lni-map-marker purple-icon"></i> {{events.workshop_location}}
                         <p>{{events.description|truncatewords:30 | safe}}</p>
                         <a href="{{ events.get_absolute_url }}" class="btn btn-teal">More details</a>
                         <!--<a href="../add/{{ events.slug }}" class="btn btn-success">Add to Cart</a>-->
@@ -31,6 +25,8 @@
                 </div>                
             </div>
         </div>
+      {% empty %}
+      <p>We currently have no workshops running. Please check back again soon for updates.</p>
         {% endfor %}
     </div>        
 </div>

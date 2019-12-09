@@ -4,34 +4,34 @@
 	<!--News Layout-->
     <div class="header-wrap">
       <div class="container-fluid">
-        <h1 class="page-title">Test</h1>
+        <h1 class="page-title">{{workshop_details.title}}</h1>
       </div>
     </div>
     <div class="container mb-5">
         <div class="row">
-            <div class="homepage-title-content">
-                <div class="section-pre-title">Don't miss out</div>
-                    <h2 class="section-title">Upcoming Workshops</h2>
-                </div>
-        </div>
-        {% for events in workshop_events %}
-        <div class="row">
-            <div class="col-sm-12 workshop-box">
+            <div class="col-sm-12">
                 <div class="row">
-                    <div class="cols-sm-6 col-md-4">
-                        <a class="post-img" href="{{ events.get_absolute_url }}"><img src="{{events.image.url}}" alt="{{events.title}}"></a>
-                    </div>
-                    <div class="cols-sm-6 col-md-8">
-                        <h4>{{events.title}} - &euro;{{events.price}}</h4>
-                        <i class="lni-timer">{{events.workshop_start_date|date:"M d, Y"}}, {{events.workshop_start_time}}</i><i class="lni-map-marker"></i> {{events.workshop_location}}
-                        <p>{{events.description|truncatewords:30 | safe}}</p>
-                        <a href="../add/{{ events.slug }}" class="btn btn-teal">More details</a>
-                        <!--<a href="../add/{{ events.slug }}" class="btn btn-success">Add to Cart</a>-->
-                    </div>
+                    <img src="{{workshop_details.image.url}}" class="workshop-detail-image" alt="{{events.title}}">
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 mt-5 mb-5">
+                <div class="row">
+                    <h4>Details</h4>
+                </div>
+                <div class="row">
+                        <p><i class="lni-calendar"></i> <strong>Date:</strong> {{workshop_details.workshop_start_date|date:"M d, Y"}} - {{workshop_details.workshop_end_date|date:"M d, Y"}}</p>
+                        <p><i class="lni-timer"></i> <strong>Time:</strong> {{workshop_details.workshop_start_time}} - {{workshop_details.workshop_end_time}}</p><br><br><br>
+                        <p><strong>Cost: </strong>&euro;{{workshop_details.price}}</p>
+                        <p><strong>Places: </strong> {{workshop_details.available_places}}</p>
+                        <a href="../../add/{{ workshop_details.slug }}" class="btn btn-teal">Add to Cart</a>
                 </div>                
             </div>
+            <div class="col-sm-12 col-md-8 mt-5 mb-5">
+                <div class="row">
+                    <p>{{workshop_details.description| safe}}</p>
+                </div>
+            </div>
         </div>
-        {% endfor %}
     </div>        
 </div>
 {% endblock %}

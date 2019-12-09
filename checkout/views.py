@@ -89,10 +89,16 @@ def charge(request):
 			order.orderId = f'#{request.user}{orderId}'
 			order.address = savedAddress
 			order.save()
-			cartItems = OrderLineItem.objects.filter(user=request.user)
+			cartItems = OrderLineItem.objects.filter(user=request.user, purchased=False)
 			for item in cartItems:
+				print('Item:' + str(item.item_id) + 'Quantity:' + str(item.quantity))
 				item.purchased = True
 				item.save()
+				products = Product.objects.get(id=item.item_id)
+				#print('Product:' + str(products))
+				if products.available_places > 0:
+					products.available_places = int(products.available_places - item.quantity)
+					products.save()
 			orders = Order.objects.filter(user=request.user, ordered=True).order_by('-pk')[0]
 			subject = 'Order Confirmation'
 			message = 'Thank you for your order. We will be in contact with you shortly.'

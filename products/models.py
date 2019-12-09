@@ -42,8 +42,8 @@ class Product(PolymorphicModel):
 class Workshop(Product):
     
     WORKSHOP_LOCATIONS = (
-        ('headford', 'Headford Wellbeing Centre'),
-        ('burren','Burren'),
+        ('Headford', 'Headford Wellbeing Centre'),
+        ('Burren','Burren'),
         )
     workshop_start_date = models.DateField(blank=True, default=timezone.now)
     workshop_end_date = models.DateField(blank=True, default=timezone.now)
