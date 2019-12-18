@@ -26,3 +26,43 @@ class TestViews(TestCase):
         page = self.client.get("/about/")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "about.html") 
+    
+    def test_get_timetable_page(self):
+        page = self.client.get("/timetable/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "timetable.html")
+    
+    def test_get_hot_yoga_page(self):
+        page = self.client.get("/bikram-hot-yoga/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "bikram-hot-yoga.html") 
+    
+    def test_get_meditation_page(self):
+        page = self.client.get("/meditation/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "meditation.html")  
+
+    def test_get_pregnancy_yoga_page(self):
+        page = self.client.get("/pregnancy-yoga/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "pregnancy-yoga.html") 
+
+    def test_get_reformer_bed_page(self):
+        page = self.client.get("/reformer-bed/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "reformer-bed.html")   
+
+    def test_get_total_barre_page(self):
+        page = self.client.get("/total-barre/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "total-barre.html") 
+
+    def test_get_what_do_i_need_page(self):
+        page = self.client.get("/what-do-i-need/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "what-do-i-need.html")   
+        
+    def test_get_yogalates_page(self):
+        page = self.client.get("/yogalates/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "yogalates.html") 

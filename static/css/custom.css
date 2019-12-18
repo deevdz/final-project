@@ -174,8 +174,6 @@ label {
     background-size: cover;
 }
 
-
-
 /* Page Content */
 .main-content {
     min-height:100vh;
@@ -235,6 +233,18 @@ label {
     line-height: 72px;
     letter-spacing: -0.1px;
     font-family: Prata;
+}
+
+/*About Page */
+.about-quote-section {
+  background-color: #f9f9f9;
+  padding:20px 10px;
+}
+
+.section-heading {
+    font-family: Prata;
+    font-size: 26px;
+    letter-spacing: 1px;
 }
 
 /*Workshop Page */

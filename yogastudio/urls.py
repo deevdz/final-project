@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.static import serve
-from home.views import index, about, contact
+from home.views import index, about, contact, bikram_hot_yoga, meditation, pregnancy_yoga, reformer_bed, timetable, total_barre, what_do_i_need, yogalates
 from blog import urls as urls_blog
 from products import urls as urls_products
 from checkout.views import checkout, payment, charge, order_view
@@ -30,6 +30,14 @@ urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^about/', about, name='about'),
     url(r'^contact/', contact, name='contact'),
+    url(r'^what-do-i-need/', what_do_i_need, name='what-do-i-need'),
+    url(r'^reformer-bed/', reformer_bed, name='reformer-bed'),
+    url(r'^yogalates/', yogalates, name='yogalates'),
+    url(r'^total-barre/', total_barre, name='total-barre'),
+    url(r'^bikram-hot-yoga/', bikram_hot_yoga, name='bikram-hot-yoga'),
+    url(r'^pregnancy-yoga/', pregnancy_yoga, name='pregnancy-yoga'),
+    url(r'^meditation/', meditation, name='meditation'),
+    url(r'^timetable/', timetable, name='timetable'),    
     url(r'^blog/', include(urls_blog)),
     url(r'^workshops/', include(urls_products)),
     url(r'^shop/', products, name='products'),

@@ -24,6 +24,38 @@ def index(request):
 def about(request):
     """A view that displays the About Page"""
     return render(request, 'about.html',{})
+
+def what_do_i_need(request):
+    """A view that displays the What Do I need Page"""
+    return render(request, 'what-do-i-need.html',{})
+
+def bikram_hot_yoga(request):
+    """A view that displays the Hot Yoga Page"""
+    return render(request, 'bikram-hot-yoga.html',{})  
+
+def meditation(request):
+    """A view that displays the Meditation Page"""
+    return render(request, 'meditation.html',{})    
+    
+def pregnancy_yoga(request):
+    """A view that displays the Pregnancy Yoga Page"""
+    return render(request, 'pregnancy-yoga.html',{})   
+    
+def reformer_bed(request):
+    """A view that displays the Reformer Bed Page"""
+    return render(request, 'reformer-bed.html',{})    
+    
+def timetable(request):
+    """A view that displays the Timetable Page"""
+    return render(request, 'timetable.html',{})
+    
+def total_barre(request):
+    """A view that displays the Total Barre Page"""
+    return render(request, 'total-barre.html',{})    
+    
+def yogalates(request):
+    """A view that displays the Yogalates Page"""
+    return render(request, 'yogalates.html',{})    
     
 def contact(request):
     form_class = ContactForm
