@@ -154,25 +154,92 @@ label {
 
 .homepage-info-box-1 {
     background: url('https://deevdzfinalproject.s3-eu-west-1.amazonaws.com/static/img/homepage-new-to-yoga.png') no-repeat;
-    background-size: auto;
-    height: 300px;
-    background-position: center;
-    background-size: cover;
 }
 
 .homepage-info-box-2 {
     background: url('https://deevdzfinalproject.s3-eu-west-1.amazonaws.com/static/img/homepage-inside-our-centre.png') no-repeat;
-    background-size: auto;
-    height: 300px;
-    background-position: center;
-    background-size: cover;
 }
 .homepage-info-box-3 {
-    background: url('https://deevdzfinalproject.s3-eu-west-1.amazonaws.com/static/img/homepage-classes.png') no-repeat;
-    background-size: auto;
+    background: url('https://deevdzfinalproject.s3-eu-west-1.amazonaws.com/static/img/homepage-reformer-bed.jpg') no-repeat;
+}
+
+.hoverinfobox,
+.hoverinfobox * {
+	box-sizing: border-box;
+}
+.hoverinfobox {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	max-width: 100%;
+	height: auto;
+}
+
+.hoverinfobox_background {
     height: 300px;
-    background-position: center;
     background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.hoverinfobox .hoverinfobox-layer_bottom {
+	display: block;
+}
+.hoverinfobox .hoverinfobox-layer_top {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	padding: 15px;
+	-moz-transition: all 0.4s ease-in-out 0s;
+	-webkit-transition: all 0.4s ease-in-out 0s;
+	-ms-transition: all 0.4s ease-in-out 0s;
+	transition: all 0.4s ease-in-out 0s;
+}
+.hoverinfobox:hover .hoverinfobox-layer_top,
+.hoverinfobox.active .hoverinfobox-layer_top {
+	opacity: 1;
+}
+.hoverinfobox .hoverinfobox-text {
+	text-align: left;
+	font-size: 16px;
+	display: inline-block;
+	position: absolute;
+	top: 60%;
+	left: 45%;
+	-moz-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+.hoverinfobox .hoverinfobox-text_mobile {
+	font-size: 15px;
+	border-top: 1px solid rgb(179, 179, 179); /* for old browsers */
+	border-top: 1px solid rgba(179, 179, 179, 0.7);
+	margin-top: 5px;
+	padding-top: 2px;
+	display: none;
+}
+.hoverinfobox.active .hoverinfobox-text_mobile {
+	display: block;
+}
+.hoverinfobox .hoverinfobox-layer_slideleft {
+	-moz-transform: translateX(100%);
+	-webkit-transform: translateX(100%);
+	-ms-transform: translateX(100%);
+	transform: translateX(100%);
+}
+.hoverinfobox:hover .hoverinfobox-layer_slideleft,
+.hoverinfobox.active .hoverinfobox-layer_slideleft {
+	-moz-transform: translateX(0);
+	-webkit-transform: translateX(0);
+	-ms-transform: translateX(0);
+	transform: translateX(0);
 }
 
 /* Page Content */
@@ -229,11 +296,52 @@ label {
     display: block;
 }
 
+.box-section-pre-title, .section-pre-title a {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 32px;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 1px;
+    padding-left: 60px;
+    padding-top:40px;
+    font-family:Prata;
+}
+
+.box-section-pre-title::before {
+    content: '';
+    left: 0;
+    top: 50%;
+    background: #fff;
+    height: 1px;
+    width: 40px;
+    position: absolute;
+    display: block;
+    margin-top:20px;
+}
+
+.box-section-pre-title:hover {
+    content: '';
+    left: 0;
+    top: 50%;
+    background: #fff;
+    height: 1px;
+    width: 40px;
+    position: absolute;
+    display: block;
+    margin-top:20px;
+}
+
 .homepage-title-content h2 {
     font-size: 48px;
     line-height: 72px;
     letter-spacing: -0.1px;
     font-family: Prata;
+}
+
+a.no-decoration:hover {
+    text-decoration: none !important;
+    color: transparent !important;
 }
 
 /*About Page */

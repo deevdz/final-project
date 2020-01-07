@@ -13,7 +13,7 @@
               <div class="homepage-title-content">
                 <div class="section-pre-title">{{slide.subtitle}}</div>
                   <h2 class="section-title">{{slide.title}}</h2>
-                  <button class="btn btn-teal mt-20"><a href="#">{{slide.button}}</a></button>
+                  <button class="btn btn-teal mt-20"><a href="{{slide.urlpath}}">{{slide.button}}</a></button>
               </div>
             </div>
           </div>
@@ -24,7 +24,7 @@
                 <div class="homepage-title-content">
                   <div class="section-pre-title">{{slide.subtitle}}</div>
                     <h2 class="section-title">{{slide.title}}</h2>
-                    <button class="btn btn-teal mt-20"><a href="#">{{slide.button}}</a></button>
+                    <button class="btn btn-teal mt-20"><a href="{{slide.urlpath}}">{{slide.button}}</a></button>
                 </div>
               </div>
             </div>
@@ -32,28 +32,41 @@
         {% endfor %}
         </div> 
       <!-- Left and right controls -->
-      <a class="carousel-control-prev" href="#homepage-carousel" data-slide="prev">
+      <!--<a class="carousel-control-prev" href="#homepage-carousel" data-slide="prev">
         <span class="carousel-control-prev-icon"></span>
       </a>
       <a class="carousel-control-next" href="#homepage-carousel" data-slide="next">
         <span class="carousel-control-next-icon"></span>
-      </a>
+      </a>-->
     </div>
-    <div class="">
-        <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-4 col-sm-12 homepage-info-box-1">
-                Testing
+    <div class="container-fluid">
+        <div class="row">
+          <a class="no-decoration col-md-4 col-sm-12 homepage-info-box-1 hoverinfobox_background hoverinfobox" href="what-do-i-need/">
+              <div class="box-section-pre-title">What I Need?</div>
+              <div class="hoverinfobox-layer_top hoverinfobox-layer_slideleft">
+            	<div class="hoverinfobox-text">Some helpful information if you are new to the centre including tips on eating before classes, what type of clothing to wear, where to park your car and how to get the most out of your experience.
+            	  <div class="hoverinfobox-text_mobile">Tap again to go further</div>
+            	</div>
             </div>
-              <div class="col-md-4 col-sm-12 homepage-info-box-2">
-                Testing
+          </a>
+          <a class="no-decoration col-md-4 col-sm-12 homepage-info-box-2 hoverinfobox_background hoverinfobox" href="about/">
+              <div class="box-section-pre-title">About our Centre</div>
+              <div class="hoverinfobox-layer_top hoverinfobox-layer_slideleft">
+            	<div class="hoverinfobox-text">I opened Headford Wellbeing Centre with my main aim being to help everyone who visits the centre to see their own potential to re-establish balance, harmony and health on a physical, mental and emotional level.
+            	  <div class="hoverinfobox-text_mobile">Tap again to go further</div>
+            	</div>
             </div>
-              <div class="col-md-4 col-sm-12 homepage-info-box-3">
-                Testing
-            </div>            
+          </a>
+          <a class="no-decoration col-md-4 col-sm-12 homepage-info-box-3 hoverinfobox hoverinfobox_background" href="reformer-bed/">
+              <div class="box-section-pre-title">Reformer Bed</div>
+            	  <div class="hoverinfobox-layer_top hoverinfobox-layer_slideleft">
+            		  <div class="hoverinfobox-text">We offer affordable 1 hour private one-on-one classes . If you are looking for a personalised program to achieve certain goals quickly, safely and effectively at a time which suits you then private classes are for you. 
+            			<div class="hoverinfobox-text_mobile">Tap again to go further</div>
+            		</div>
+            	</div>
+            </a>
         </div>
     </div>
-              </div>
     <div class="page-section page-section-grey">
         <div class="container">
             <div class="row">
