@@ -261,7 +261,7 @@ label {
 }
 
 [class*="page-section"] {
-    padding: 120px 0;
+    padding: 100px 0;
     position: relative;
 }
 
@@ -271,8 +271,9 @@ label {
         background-size: auto;
 }
 
-.homepage-title-content {
-    margin-bottom: 23px;
+.homepage-events-section {
+    background: url('https://deevdzfinalproject.s3-eu-west-1.amazonaws.com/static/img/homepage-events-section-bgrd.jpg') no-repeat;
+    background-size: cover;
 }
 
 .section-pre-title, .section-pre-title a {
@@ -294,6 +295,14 @@ label {
     width: 40px;
     position: absolute;
     display: block;
+}
+
+.homepage-title-content-white .section-pre-title, .homepage-title-content-white .section-pre-title a {
+    color: #fff;
+}
+
+.homepage-title-content-white .section-pre-title::before {
+    background: #fff;
 }
 
 .box-section-pre-title, .section-pre-title a {
@@ -337,6 +346,24 @@ label {
     line-height: 72px;
     letter-spacing: -0.1px;
     font-family: Prata;
+}
+
+.homepage-title-content-white h2 {
+    color:#fff;
+    line-height: 72px;
+    letter-spacing: -0.1px;
+    font-family: Prata;  
+    font-size:48px;
+}
+
+.homepage-event-white-box {
+    background:rgba(255,255,255,0.3);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.homepage-event-white-box a {
+    color:#fff;
 }
 
 a.no-decoration:hover {
@@ -416,6 +443,74 @@ a.btn-purple-classes:hover {
     color:#fff !important;
     text-decoration: none;
 }
+
+/*----- Timetable Styles -----*/
+.timetable-header-container {
+    height: 70vh;
+    background: url('../images/timetable-header-image.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom:30px;
+}
+.timetable-fusion {
+  background:rgb(65, 57, 91);
+  color:#fff;
+}
+
+.timetable-pilates {
+  background-color:rgb(127, 75, 142);
+  color:#fff;
+}
+
+.timetable-pregnancy {
+  background-color:rgb(154, 184, 209);
+  color:#fff;
+}
+
+.timetable-yogalates {
+  background-color:rgb(105, 156, 144);
+  color:#fff;
+}
+
+.timetable-barre {
+  background-color:rgb(35, 50, 57);
+  color:#fff;
+}
+.timetable-heated {
+  background-color:rgb(57, 47, 35);
+  color:#fff;
+}
+.timetable-meditation {
+  background-color:rgb(39, 76, 119);
+  color:#fff;
+}
+
+.timetable-blank {
+  background-color:#efefef;
+}
+
+.timetable-time {
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+  margin-top: 1rem;
+  font-size: 0.9em;
+}
+
+.timetable-name {
+  font-weight:600;
+}
+
+.timetable-level {
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+
 
 /*Workshop Page */
 .workshop-box {

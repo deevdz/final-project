@@ -20,7 +20,8 @@ def products(request):
 
 
 def workshops(request):
-    workshop_events = Product.objects.instance_of(Workshop).filter(status='published').order_by('-created_date')
+    workshops = Product.objects.instance_of(Workshop).filter(status='published').order_by('-created_date')
+    workshop_events = workshops.filter( Q(Workshop___workshop_end_date__gt=timezone.now()))
     
     context = {
          'workshop_events': workshop_events

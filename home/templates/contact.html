@@ -3,7 +3,7 @@
 {% load bootstrap_tags %}
 {% block content %}
 <div class="container-fluid">
-	<!--News Layout-->
+	<!--Contact Page Layout-->
     <div class="header-wrap">
       <div class="container-fluid">
         <h1 class="page-title">Contact</h1>
@@ -23,6 +23,14 @@
             {{ form | as_bootstrap }}
             <button type="submit" class="btn btn-teal">Submit</button>
         </form>
-    </div>        
+    </div>
+
+</div>
+<div class="container-fluid m-0 p-0" style="padding:0px !important">
+    <div class="row m-0 p-0">
+      <div class="col-12 m-0 p-0">
+        <div id="map-container" class="z-depth-1 m-0 p-0" style="height:450px"></div>
+      </div>
+    </div>
 </div>
 {% endblock %}

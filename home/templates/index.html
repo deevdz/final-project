@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <div class="container-fluid" style="padding:0px">
+    <!--Homepage Carousel-->
     <div id="homepage-carousel" class="carousel slide" data-ride="carousel">
       <!-- The slideshow -->
       <div class="carousel-inner">
@@ -39,6 +39,7 @@
         <span class="carousel-control-next-icon"></span>
       </a>-->
     </div>
+    <!--Info Boxes Below Homepage Carousel-->
     <div class="container-fluid">
         <div class="row">
           <a class="no-decoration col-md-4 col-sm-12 homepage-info-box-1 hoverinfobox_background hoverinfobox" href="what-do-i-need/">
@@ -67,6 +68,7 @@
             </a>
         </div>
     </div>
+    <!--Homepage Blog Display-->
     <div class="page-section page-section-grey">
         <div class="container">
             <div class="row">
@@ -100,7 +102,29 @@
             </div>
         </div>
     </div>
+    <!--Workshops and Events Section-->
+    <div class="homepage-events-section">
+      <div class="page-section col-md-6 col-sm-12 p-5" style="background:rgba(157,99,129,0.9)">
+        <div class="container">
+            <div class="row">
+              <div class="homepage-title-content-white">
+                <div class="section-pre-title">Events</div>
+                  <h2 class="section-title">Upcoming Workshops</h2>
+                  {% for event in upcoming_workshops %}
+                  <div class="homepage-event-white-box">
+                     <h4><a href="{{ event.get_absolute_url }}">{{event.title}}</a></h4>
+                     <p><i class="lni-coin purple-icon"></i> &euro;{{event.price}} <i class="lni-timer purple-icon"></i> {{event.workshop_start_date|date:"M d, Y"}}, {{event.workshop_start_time}}</p>
+                     <p>{{event.description|truncatewords:30 | safe}}</p>
+                  </div>
+                  {% endfor %}
+                  <a href="/workshops/" alt="Workshops" class="btn btn-teal">VIEW ALL EVENTS</a>
+                </div>
+              </div>
+        </div>
+        </div>
+    </div>
 </div>
+<!--Call to Action - Signup for Classes -->
 <div class="container-fluid classes-booking-section">
   <div class="row">
       <div class="container">
@@ -115,5 +139,4 @@
     </div>  
   </div>
 </div>
-
 {% endblock %}

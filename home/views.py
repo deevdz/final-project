@@ -3,7 +3,9 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template.loader import get_template
+from django.utils import timezone
 from blog.models import Blog
+from products.models import Workshop
 from .models import HomepageSlider
 from .forms import ContactForm
     
@@ -13,10 +15,12 @@ def index(request):
     """A view that displays the Homepage"""
     slides = HomepageSlider.objects.filter(status='published').order_by('?')[:3]
     blog_posts = Blog.objects.filter(status='published').order_by('-created_date')[:3]
+    upcoming_workshops = Workshop.objects.filter(status='published', workshop_end_date__gt=timezone.now()).order_by('?')[:1]
     
     context = {
             'queryset': blog_posts,
             'slides': slides,
+            'upcoming_workshops': upcoming_workshops
             }
     
     return render(request, 'index.html', context)
