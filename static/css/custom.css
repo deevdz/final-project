@@ -955,6 +955,12 @@ ul.post-meta  {
     display: inline;
 }
 
+/* Contact Page */
+.form-control-plaintext {
+    background:#efefef;
+    padding-left:10px;
+}
+
 /* Footer styles */
 
 footer{
@@ -1005,7 +1011,7 @@ footer a:hover {
     text-decoration:none;
 }
 
-/* Marin Styles */
+/* Margin Styles */
 
 .mt-20 {
     margin-top: 20px;

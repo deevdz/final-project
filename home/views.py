@@ -64,7 +64,6 @@ def yogalates(request):
 def contact(request):
     form_class = ContactForm
 
-    # new logic!
     if request.method == 'POST':
         form = form_class(data=request.POST)
 
@@ -86,7 +85,9 @@ def contact(request):
             subject = 'Contact Form from Website'
             message = content
             from_email = settings.EMAIL_HOST_USER
-            to_list = [request.user.email, settings.EMAIL_HOST_USER]
+            to_list = [contact_email, settings.EMAIL_HOST_USER]
             send_mail (subject, message, from_email, to_list, fail_silently=True)
             messages.success(request, "Success. Thanks for getting in touch!")
     return render(request, 'contact.html', {'form': form_class,})
+    
+#request.user.email
