@@ -381,12 +381,45 @@ h2.section-heading  {
     font-family: Prata;
     font-size: 26px;
     letter-spacing: 1px;
+    margin-bottom: 20px;
 }
 
 h3.section-heading  {
     font-family: Prata;
     font-size: 20px;
     letter-spacing: 1px;
+}
+
+.gal {
+	-webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+	}	
+
+.gal img{ width: 100%; padding: 7px 0;}
+
+blockquote {
+  display: block;
+  border-width: 2px 0;
+  border-style: solid;
+  border-color: #9d6381;
+  padding: 1.5em 0 0.5em;
+  margin: 1.5em 0;
+  position: relative;
+}
+
+blockquote:before {
+  content: '\201C';
+  position: absolute;
+  top: 0em;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  background: #fafafa;
+  width: 3rem;
+  height: 2rem;
+  font: 6em/1.08em 'PT Sans', sans-serif;
+  color: #9d6381;
+  text-align: center;
 }
 
 /*Class Pages */
@@ -959,6 +992,46 @@ ul.post-meta  {
 .form-control-plaintext {
     background:#efefef;
     padding-left:10px;
+}
+
+.contact-details h6 {
+    font-weight: 400;
+    color:#7ab5a7;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+}
+
+.contact-details p {
+    font-family: Prata;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    margin-bottom: 2em;
+}
+
+.contact-details a {
+    font-family: Prata;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    color:#212529;
+    margin-bottom: 2em;
+}
+
+.contact-details a:hover {
+    text-decoration: none;
+}
+
+.form-group label {
+    font-size: 15px;
+    color:#9d6381;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+
+.lni-facebook-original {
+    font-size: 30px;
+    color:#9d6381;
 }
 
 /* Footer styles */

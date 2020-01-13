@@ -10,40 +10,55 @@
       </div>
     </div>
     <div class="container mb-5">
-      {% if messages %}
-        <ul class="messages">
-          {% for message in messages %}
-            <li class="{{ message.tags }}">{{ message }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-      
-        
-            
-            {% if user.is_authenticated %}
-             <form method="post">
-               {% csrf_token %}
-                <div class="form-group">
-                  <label>{{ form.contact_name.label_tag }}</label>
-                  <input type="text" class="form-control" id="contact_name" name="contact_name" aria-describedby="EnterName" placeholder="Enter name">
-                </div>
-                <div class="form-group">
-                  <label>{{ form.contact_email.label_tag }}</label>
-                  <input type="text" readonly class="form-control-plaintext" id="contact_email" name="contact_email" value="{{request.user.email}}">
-                </div>
-                <div class="form-group">
-                  <label>{{ form.content.label_tag }}</label>
-                  <textarea class="form-control" name="content" id="content" rows="5"></textarea>
-                </div>
-                <button type="submit" class="btn btn-teal">Submit</button>
-              </form>            
-            {% else %}
-            {{ form | as_bootstrap }}
-            <button type="submit" class="btn btn-teal">Submit</button>
-            {% endif %}
-        </form>
+      <div class="row">
+        <div class="col-sm-12 col-md-8 mb-80">
+          {% if messages %}
+            <ul class="messages">
+              {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          {% if user.is_authenticated %}
+               <form method="post">
+                 {% csrf_token %}
+                 <div  class="contact-details">
+                   <h6><i class="lni-question-circle"></i> Feel free to send me any questions you may have. I am happy to answer them.</h6>
+                   <br>
+                  </div>
+                  <div class="form-group">
+                    <label>{{ form.contact_name.label_tag }}</label>
+                    <input type="text" class="form-control" id="contact_name" name="contact_name" aria-describedby="EnterName" placeholder="Enter name (required)">
+                  </div>
+                  <div class="form-group">
+                    <label>{{ form.contact_email.label_tag }}</label>
+                    <input type="text" readonly class="form-control-plaintext" id="contact_email" name="contact_email" value="{{request.user.email}}">
+                  </div>
+                  <div class="form-group">
+                    <label>{{ form.content.label_tag }}</label>
+                    <textarea class="form-control" name="content" id="content" placeholder="Your question here (required)" rows="5"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-teal">Submit</button>
+                </form>            
+          {% else %}
+              {{ form | as_bootstrap }}
+              <button type="submit" class="btn btn-teal">Submit</button>
+          {% endif %}
+      </div>
+        <div class="col-sm-12 offset-md-1 col-md-3 mb-80">
+          <div class="contact-details">
+          <h6><i class="lni-map-marker"></i> POSTAL ADDRESS</h6>
+          <p>Bridge Street, Headford, Co.Galway</p>
+          <h6><i class="lni-phone"></i> PHONE NUMBER</h6>
+          <p>087 1234567</p>
+          <h6><i class="lni-envelope"></i> EMAIL ADDRESS</h6>
+          <p><a href="mailto:info@headfordwellbeingcentre.com">info@headfordwellbeingcentre.com</a></p>
+          <h6><i class="lni-share"></i> STAY CONNECTED</h6>
+          <a href=""><i class="lni-facebook-original"></i></a>
+          </div>
+        </div>
+      </div>
     </div>
-
 </div>
 <div class="container-fluid m-0 p-0" style="padding:0px !important">
     <div class="row m-0 p-0">
@@ -51,5 +66,19 @@
         <div id="map-container" class="z-depth-1 m-0 p-0" style="height:450px"></div>
       </div>
     </div>
+</div>
+<div class="container-fluid classes-booking-section">
+  <div class="row">
+      <div class="container">
+            <div class="row justify-content-around align-items-center">
+                <div class="col-12 col-md-8 align-items-center">
+                    <h2 class="class-section-heading">Start your yoga practice today!</h2>
+                </div>
+                <div class="col-12 col-md-4 align-items-center">
+                    <a href="/shop" class="btn-purple-classes btn-big">Book your class pack now</a>
+                </div>                
+            </div>
+    </div>  
+  </div>
 </div>
 {% endblock %}

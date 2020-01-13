@@ -12,15 +12,6 @@
     <link rel="stylesheet" href="{% static 'css/vanillatop.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/tagsinput.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/5c4a70df72.js"></script>
-    <script src="{% static 'js/vanillatop.min.js' %}"></script>
-    <script src="{% static 'js/tagsinput.js' %}"></script>
-    <script src="{% static 'js/custom.js' %}"></script>
-    <script src="https://maps.google.com/maps/api/js?key=AIzaSyDtSnVeGIwPGwIntFdUNTQ1HdOsCW80Xhg"></script>
-    <script src="{% static 'js/custom-map.js' %}"></script>   
     {% block head_js %}
     {% endblock head_js %}    
 </head>
@@ -78,13 +69,15 @@
                           <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><i class="lni-user"></i></a>
                           <div class="dropdown-menu">
                             {% if request.user.is_authenticated %}
+                            <p class="dropdown-item">Hi {{request.user}} <i class="lni-user"></i> </p>
                               {% if request.user.is_staff %}
-                              <p class="dropdown-item">Hi {{request.user}} <i class="lni-user"></i> </p>
                                 <a class="dropdown-item" href="{% url 'blog_create' %}">Create Post</a>
                               {% endif %}
+                              <a class="dropdown-item" href="/orders/">My Orders</a>
                               <a class="dropdown-item" href="{% url 'account_logout' %}?next={% firstof request.path '/' %}">Logout</a>
                              {% else %}            
-                              <a class="dropdown-item" href="{% url 'account_login' %}?next={% firstof request.path '/' %}">Login</a>
+                              <a class="dropdown-item" href="{% url 'account_login' %}?next={% firstof request.path '/' %}">Login/Register</a>
+                              
                             {% endif %}
                         </div>
                         </li>
@@ -147,5 +140,15 @@
         </div>          
       </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5c4a70df72.js"></script>
+    <script src="{% static 'js/vanillatop.min.js' %}"></script>
+    <script src="{% static 'js/tagsinput.js' %}"></script>
+    <script src="{% static 'js/fslightbox.js' %}"></script>  
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyDtSnVeGIwPGwIntFdUNTQ1HdOsCW80Xhg"></script>
+    <script src="{% static 'js/custom-map.js' %}"></script>   
+    <script src="{% static 'js/custom.js' %}"></script>    
 </body>
 </html>
