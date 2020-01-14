@@ -16,22 +16,30 @@
             </div>
             <div class="col-sm-12 col-md-4 mt-5 mb-5">
                 <div class="row">
-                    <h4>Details</h4>
+                    <div class="workshop-details">
+                        <h4>Event Details</h4>
+                    </div>
                 </div>
                 <div class="row">
-                        <p><i class="lni-calendar"></i> <strong>Date:</strong> {{workshop_details.workshop_start_date|date:"M d, Y"}} - {{workshop_details.workshop_end_date|date:"M d, Y"}}</p>
-                        <p><i class="lni-timer"></i> <strong>Time:</strong> {{workshop_details.workshop_start_time}} - {{workshop_details.workshop_end_time}}</p><br><br><br>
-                        <p><strong>Cost: </strong>&euro;{{workshop_details.price}}</p>
+                    <div class="workshop-details">
+                        <p><i class="lni-calendar purple-icon"></i> <strong>Date:</strong> {{workshop_details.workshop_start_date|date:"M d, Y"}} - {{workshop_details.workshop_end_date|date:"M d, Y"}}</p>
+                        <p><i class="lni-timer purple-icon"></i> <strong>Time:</strong> {{workshop_details.workshop_start_time}} - {{workshop_details.workshop_end_time}}</p>
+                        <p><i class="lni-map-marker purple-icon"></i> <strong>Location: </strong>{{workshop_details.workshop_location}} </p>
+                        <p><i class="lni-coin purple-icon"></i> <strong>Price: </strong>&euro;{{workshop_details.price}}</p>
                         {% if workshop_details.available_places <= 0 %}
                         <button class="btn btn-teal">Sold Out</button>
                         {% else %}
-                        <p><strong>Places: </strong> {{workshop_details.available_places}}</p>
+                        <p><i class="lni-users purple-icon"></i><strong> Places Remaining: </strong> {{workshop_details.available_places}}</p>
                         <a href="../../add/{{ workshop_details.slug }}" class="btn btn-teal">Add to Cart</a>
                         {% endif %}
+                    </div>
                 </div>                
             </div>
             <div class="col-sm-12 col-md-8 mt-5 mb-5">
                 <div class="row">
+                    <div class="workshop-details">
+                        <h4>Event Description</h4>
+                    </div>
                     <p>{{workshop_details.description| safe}}</p>
                 </div>
             </div>

@@ -477,55 +477,59 @@ a.btn-purple-classes:hover {
     text-decoration: none;
 }
 
-/*----- Timetable Styles -----*/
-.timetable-header-container {
-    height: 70vh;
-    background: url('../images/timetable-header-image.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin-bottom:30px;
+/*What Di I Need Page */
+.card-header {
+  background-color: rgba(206,204,204,.3);
+  cursor: pointer;
 }
+
+.accordion .card-header:after {
+    font-family: 'FontAwesome';  
+    content: "\f068";
+    float: right; 
+}
+.accordion .card-header.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\f067"; 
+}
+
+.card-body:last-of-type {
+  border-bottom:1px solid rgba(0,0,0,.125);
+}
+
+/*----- Timetable Styles -----*/
+
 .timetable-fusion {
-  background:rgb(65, 57, 91);
+  background:rgba(157, 99, 129, 0.8);
   color:#fff;
 }
 
-.timetable-pilates {
-  background-color:rgb(127, 75, 142);
-  color:#fff;
-}
 
 .timetable-pregnancy {
-  background-color:rgb(154, 184, 209);
+  background-color:rgba(154, 184, 209, 0.8);
   color:#fff;
 }
 
 .timetable-yogalates {
-  background-color:rgb(105, 156, 144);
+  background-color:rgba(105, 156, 144, 0.8);
   color:#fff;
 }
 
 .timetable-barre {
-  background-color:rgb(35, 50, 57);
+  background-color:rgba(35, 50, 57, 0.8);
   color:#fff;
 }
 .timetable-heated {
-  background-color:rgb(57, 47, 35);
+  background-color:rgba(57, 47, 35,0.8);
   color:#fff;
 }
 .timetable-meditation {
-  background-color:rgb(39, 76, 119);
+  background-color:rgba(39, 76, 119, 0.8);
   color:#fff;
 }
 
 .timetable-blank {
-  background-color:#efefef;
+  background-color:rgba(206,204,204,0.2);
 }
 
 .timetable-time {
@@ -544,12 +548,60 @@ a.btn-purple-classes:hover {
   margin-top: 1rem;
 }
 
+.table-bordered thead th {
+    border-bottom-width: 2px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+}
+
+
+
+.timetable-term-dates li {
+    margin-bottom:10px;
+    list-style-type: disc;
+}
+
 
 /*Workshop Page */
 .workshop-box {
     background:#fafafa;
     border-radius: 2px;
-    padding: 20px;
+    padding: 30px 20px;
+    margin-bottom: 20px;
+}
+
+.workshop-box h4 {
+    font-family: Prata;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.workshop-box-image {
+    position: relative;
+    text-align: center;
+    color:#fff;
+}
+
+.workshop-places {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    background-color:#99b8d1;
+    display:inline;
+    padding:5px 10px;
+    border-radius:2px;
+}
+
+.workshop-sold-out {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    background-color:#9d6381;
+    display:inline;
+    padding:5px 10px;
+    border-radius:2px;
 }
 
 .purple-icon {
@@ -557,8 +609,14 @@ a.btn-purple-classes:hover {
 }
 
 .workshop-detail-image {
-    height:300px;
+    height:450px;
     width:100%;
+}
+
+.workshop-details h4 {
+    font-family: Prata;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
 }
 
 /* Blog Items */
