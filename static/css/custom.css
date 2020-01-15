@@ -1000,6 +1000,10 @@ ul.post-meta  {
     display: none;
 }
 
+.forgot-pasword {
+    float:right;
+}
+
 /* Cart Page */
 .shop-cart {
     border-radius: 20px 20px 0 0;
@@ -1138,7 +1142,7 @@ footer a {
 }
 
 footer a:hover {
-    color:#977844 !important;
+    color:#9d6381 !important;
     text-decoration:none;
 }
 
