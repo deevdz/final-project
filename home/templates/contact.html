@@ -22,7 +22,7 @@
           {% if user.is_authenticated %}
                <form method="post">
                  {% csrf_token %}
-                 <div  class="contact-details">
+                 <div class="contact-details">
                    <h6><i class="lni-question-circle"></i> Feel free to send me any questions you may have. I am happy to answer them.</h6>
                    <br>
                   </div>
@@ -41,6 +41,10 @@
                   <button type="submit" class="btn btn-teal">Submit</button>
                 </form>            
           {% else %}
+                <div class="contact-details">
+                  <h6><i class="lni-question-circle"></i> Feel free to send me any questions you may have. I am happy to answer them.</h6>
+                  <br>
+                </div>
               {{ form | as_bootstrap }}
               <button type="submit" class="btn btn-teal">Submit</button>
           {% endif %}
@@ -54,7 +58,7 @@
           <h6><i class="lni-envelope"></i> EMAIL ADDRESS</h6>
           <p><a href="mailto:info@headfordwellbeingcentre.com">info@headfordwellbeingcentre.com</a></p>
           <h6><i class="lni-share"></i> STAY CONNECTED</h6>
-          <a href=""><i class="lni-facebook-original"></i></a>
+          <a href="https://www.facebook.com/headfordwellbeingcentre/" target="_blank"><i class="lni-facebook-original"></i></a>
           </div>
         </div>
       </div>

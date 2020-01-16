@@ -358,8 +358,13 @@ label {
 
 .homepage-event-white-box {
     background:rgba(255,255,255,0.3);
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 30px 20px;
+    margin: 30px 0 40px;
+}
+
+.homepage-event-white-box h4 {
+font-family: Prata;
+letter-spacing: 1px;
 }
 
 .homepage-event-white-box a {
@@ -1050,6 +1055,49 @@ ul.post-meta  {
     display: inline;
 }
 
+/* Checkout, Payment, Order Pages */
+.billing-details {
+    font-family: Prata;
+    letter-spacing: 1px;
+}
+
+.payment-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stripe-button-el {
+    font-family: Poppins;
+    letter-spacing: 1px;
+    text-transform:uppercase;
+}
+
+.order-table th {
+    font-family: Poppins;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-weight: 400;
+    color:#392f23;
+    letter-spacing: 1px;
+}
+
+.saved-address-box {
+    border: 1px #ced4da solid;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    background: #fbfbfb;
+}
+
+.saved-address-label {
+    font-weight:300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color:#9d6381;
+}
+
 /* Contact Page */
 .form-control-plaintext {
     background:#efefef;
@@ -1132,7 +1180,7 @@ footer{
 }
 
 .form-control {
-    border-radius: 0;
+    border-radius: 2px;
     background-color: transparent;
 }
 
@@ -1144,6 +1192,25 @@ footer a {
 footer a:hover {
     color:#9d6381 !important;
     text-decoration:none;
+}
+
+#mc_embed_signup {
+    background:transparent !important;
+    font-family:Poppins !important;
+    width:100%;
+}
+
+#mc_embed_signup label {
+    text-align: left;
+    text-transform: uppercase;
+    color: #99b8d1 !important;
+    font-weight:400 !important;
+    letter-spacing:1px;
+    font-size:0.75rem;
+}
+
+.form-control-lg {
+    font-size:1.05rem !important;
 }
 
 /* Margin Styles */

@@ -2,10 +2,22 @@
 {% load static from staticfiles %}
 {% load bootstrap_tags %}
 {% block content %}
-
-<div class="container mt-5 text-center">
-<h2 class="text-center">Thanks, you for your Orders</h2>
-<a href="/orders" class="btn btn-success">My Orders</a>
+<div class="container-fluid">
+    <div class="header-wrap">
+      <div class="container-fluid">
+        <h1 class="page-title">Thank you for your Order</h1>
+      </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="payment-button">
+                    <a href="/orders" class="btn btn-purple">View My Orders</a>
+                    <a href="/" class="btn btn-teal">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
