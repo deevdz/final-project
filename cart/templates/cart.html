@@ -18,8 +18,8 @@
                       </ul>
                     {% endif %}
                     
-                    <div class="table-responsive shop-cart">
-                        <table class="table">
+                    <div class="table-responsive text-nowrap ">
+                        <table class="table shop-cart">
                             <thead>
                                 <tr>
                                     <th scope="col" class="product-col">Product</th>
@@ -48,10 +48,11 @@
                                 </tr>
                             </tbody>
                         </table>  
+                    </div>
+                    <div class="mt-5 mb-5">
                         {% if order %}<a href="{% url 'checkout' %}"><button class="btn btn-teal float-right">Proceed To Checkout</button></a>{% endif %}
-                        <a href="{% url 'workshops' %}"><button class="btn btn-purple float-right">Continue Shopping</button></a
-                        
-                </div>
+                        <a href="{% url 'workshops' %}"><button class="btn btn-purple float-right">Continue Shopping</button></a>
+                    </div>
             </div>
         </div>
     </div>

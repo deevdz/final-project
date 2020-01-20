@@ -14,9 +14,9 @@
                     <h2 class="section-title">Class Passes</h2>
                 </div>
       </div>
-    <div class="row mb-5">
+    <div class="row shop-row mb-5">
       {% for item in all_classes %}
-        <div class="col-md-4 shop-item">
+        <div class="col-12 col-md-4 shop-item">
           <img src="{{item.image.url}}" alt="{{item.title}}">
           <h4>{{item.title}}</h4>
           <p>{{item.description | safe}}</p>
@@ -30,7 +30,7 @@
           </div>
         </div>
       {% empty %}
-      <p>We currently have no vouchers available for purchase. Please check back again soon.</p>
+      <p>We currently have no class packs available for purchase. Please check back again soon.</p>
       {% endfor %}
       </div>
     <div class="row">
@@ -39,17 +39,17 @@
                     <h2 class="section-title">Gift Vouchers</h2>
                 </div>
       </div>      
-    <div class="row  mb-5">
+    <div class="row shop-row mb-5">
       {% for item in all_vouchers %}
-        <div class="col-md-4 shop-item">
+        <div class="col-12 col-md-4 shop-item">
           <img src="{{item.image.url}}" alt="{{item.title}}">
           <h4>{{item.title}}</h4>
           <p>{{item.description | safe}}</p>
           <div class="row mt-2">
-            <div class="col-md-6">
+            <div class="col-12 col-md-6">
               <p><strong>Price: €{{item.price}}</strong></p>
             </div>
-            <div class="col-md-6">
+            <div class="col-12 col-md-6">
               <a href="../add/{{ item.slug }}" class="btn btn-purple">Add to Cart</a>
             </div>
           </div>
