@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% block content %}
 <div class="container-fluid">
     <div class="header-wrap">
@@ -19,7 +20,7 @@
                           <p>From this field of pure potentiality we get our bursts of inspiration, our most intuitive thoughts and our deepest sense of connection to ourselves and the universe.</p>
                       </div>
                       <div class="col-sm-12 col-md-6">
-                        <img src="/static/img/meditation-image.jpg" alt="Meditation" class="class-image">
+                        <img src="{% static 'img/meditation-image.jpg' %}" alt="Meditation" class="class-image">
                       </div>
                   </div>
               </div>

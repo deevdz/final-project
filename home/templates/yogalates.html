@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% block content %}
 <div class="container-fluid">
     <div class="header-wrap">
@@ -17,7 +18,7 @@
                     <p>Yoga and Pilates Equipment such as blocks, resistance bands (which replicate the resistance training of the Pilates machines), light weights and Pilates Rings are used to further enhance strength and tone in all areas.</p>
                 </div>
                  <div class="col-sm-12 col-md-6">
-                    <img src="/static/img/yogalates-image.jpg" alt="Yogalates" class="class-image">
+                    <img src="{% static 'img/yogalates-image.jpg' %}" alt="Yogalates" class="class-image">
                 </div>                
             </div>
         </div>

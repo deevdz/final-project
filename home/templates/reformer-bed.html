@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% block content %}
 <div class="container-fluid">
     <div class="header-wrap">
@@ -39,7 +40,7 @@
                               <p>Or create your own package incorporating the Reformer Bed, Yoga session and Reiki Access Consciousness Healing for a total Body Mind and Soul package!!</p>
                         </div>
                         <div class="col-sm-12 col-md-6">
-                          <img src="/static/img/reformer-bed-image.jpg" class="class-image">
+                          <img src="{% static 'img/reformer-bed-image.jpg' %}" class="class-image">
                         </div>
                       </div>
                       </div>
