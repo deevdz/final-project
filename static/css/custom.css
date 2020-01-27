@@ -255,8 +255,6 @@ label {
         background-size: auto;
     padding: 64px 0;
     text-align: center;
-    background-size: cover;
-    background-attachment: fixed;
     margin-bottom:60px;
 }
 
@@ -958,7 +956,7 @@ a.btn-teal:hover {
     top: 0;
     right: 0;
     text-align: center;
-    color: color:rgb(57,47,35);
+    color: rgb(57,47,35);
     background-color: transparent;
     border: 0;
     cursor: pointer;
@@ -988,7 +986,7 @@ a.btn-teal:hover {
 .shop-item{
     border: 2px solid #9d6381;
     padding: 20px;
-    display: inline;
+    display: block;
     background:#f9f9f9;
     margin:10px 5px;
 }
@@ -1094,7 +1092,6 @@ a.btn-purple:hover {
 
 .order-table th {
     font-family: Poppins;
-    font-weight: 400;
     text-transform: uppercase;
     font-weight: 400;
     color:#392f23;
@@ -1273,7 +1270,6 @@ body {
   top:0;
 }
 
-
 .box-section-pre-title {
     font-size:24px;
 }
@@ -1302,6 +1298,10 @@ a.vanillatop {
     margin-bottom: 40px;
 }
 
+.gal {
+column-count: 1;
+}
+
 .btn-purple-classes {
     margin: 0px auto;
     display: block;
@@ -1319,6 +1319,16 @@ a.vanillatop {
 
 .contact-details a {
     font-size:0.9em;
+}
+
+.shop-row .col-md-4 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.shop-item .btn{
+    display:block;
 }
 
 footer {
