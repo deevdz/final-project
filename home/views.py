@@ -8,59 +8,71 @@ from blog.models import Blog
 from products.models import Workshop
 from .models import HomepageSlider
 from .forms import ContactForm
-    
 
-# Create your views here.
+
+# Generate the views for the homepage
+# Display Slides, Blog Posts and Upcoming Workshops
 def index(request):
     """A view that displays the Homepage"""
     slides = HomepageSlider.objects.filter(status='published').order_by('?')[:3]
     blog_posts = Blog.objects.filter(status='published').order_by('-created_date')[:3]
     upcoming_workshops = Workshop.objects.filter(status='published', workshop_end_date__gt=timezone.now()).order_by('?')[:1]
-    
+
     context = {
             'queryset': blog_posts,
             'slides': slides,
             'upcoming_workshops': upcoming_workshops
             }
-    
+
     return render(request, 'index.html', context)
-    
+
+
+# View to display About Page
 def about(request):
-    """A view that displays the About Page"""
-    return render(request, 'about.html',{})
+    return render(request, 'about.html', {})
 
+
+# View to display What Do I Need Page
 def what_do_i_need(request):
-    """A view that displays the What Do I need Page"""
-    return render(request, 'what-do-i-need.html',{})
+    return render(request, 'what-do-i-need.html', {})
 
+
+# View to display Hot Yoga Page
 def bikram_hot_yoga(request):
-    """A view that displays the Hot Yoga Page"""
-    return render(request, 'bikram-hot-yoga.html',{})  
+    return render(request, 'bikram-hot-yoga.html', {})
 
+
+# View to display Meditation Page
 def meditation(request):
-    """A view that displays the Meditation Page"""
-    return render(request, 'meditation.html',{})    
-    
+    return render(request, 'meditation.html', {})
+
+
+# View to display Pregnancy Yoga Page
 def pregnancy_yoga(request):
-    """A view that displays the Pregnancy Yoga Page"""
-    return render(request, 'pregnancy-yoga.html',{})   
-    
+    return render(request, 'pregnancy-yoga.html', {})
+
+
+# View to display Reformer Bed Page
 def reformer_bed(request):
-    """A view that displays the Reformer Bed Page"""
-    return render(request, 'reformer-bed.html',{})    
-    
+    return render(request, 'reformer-bed.html', {})
+
+
+# View to display Timetable Page
 def timetable(request):
-    """A view that displays the Timetable Page"""
-    return render(request, 'timetable.html',{})
-    
+    return render(request, 'timetable.html', {})
+
+
+# View to display Total Barre Page
 def total_barre(request):
-    """A view that displays the Total Barre Page"""
-    return render(request, 'total-barre.html',{})    
-    
+    return render(request, 'total-barre.html', {})
+
+
+# View to display Yogalates Page
 def yogalates(request):
-    """A view that displays the Yogalates Page"""
-    return render(request, 'yogalates.html',{})    
-    
+    return render(request, 'yogalates.html', {})
+
+
+# View to display Contact Page
 def contact(request):
     form_class = ContactForm
 
@@ -72,7 +84,7 @@ def contact(request):
             contact_email = request.POST.get('contact_email', '')
             form_content = request.POST.get('content', '')
 
-            # Email the profile with the
+            # Email the contact form with the
             # contact information
             template = get_template('contact_form_template.txt')
             context = {
@@ -86,16 +98,19 @@ def contact(request):
             message = content
             from_email = settings.EMAIL_HOST_USER
             to_list = [contact_email, settings.EMAIL_HOST_USER]
-            send_mail (subject, message, from_email, to_list, fail_silently=True)
+            send_mail(subject, message, from_email,
+                      to_list, fail_silently=True)
             messages.success(request, "Success. Thanks for getting in touch!")
-    return render(request, 'contact.html', {'form': form_class,})
-    
+    return render(request, 'contact.html', {'form': form_class, })
 
+
+# View to display 404 Page
 def handler404(request, exception):
     """ Error Handler 404 - Page Not Found """
     return render(request, "404.html", status=404)
 
 
+# View to display 500 Page
 def handler500(request):
     """ Error Handler 500 - Internal Server Error """
     return render(request, "500.html", status=500)
