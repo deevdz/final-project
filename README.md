@@ -114,6 +114,30 @@ Further details on all Python packages used on this project can be found in the 
 
 ## Testing
 
+### Automated Testing
+
+### Manual Testing
+
+### Validators
+
+#### HTML
+
+Both the Base HTML file and other HTML templates were passed through the [W3C Markup Validator](https://validator.w3.org/). Numerous errors were generated but this was expected as the validator is unable to process the Django templating that builds most aspects of the site. 
+
+For the HTML that does not involve this templating, no errors were found.
+
+#### CSS
+
+The CSS3 code was passed through the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) and shows that there are no errors. A number of warnings were flagged and related to MS-Grid vendor prefixes.
+
+#### Javascript
+
+All Javascript code was passed through the [Esprima Syntax Validator](https://esprima.org/demo/validate.html) and was found to be syntactically valid.
+
+#### Python
+
+All Python code was passed through the [PEP8 Online validator](http://pep8online.com/) and is PEP8 compliant.
+
 
 ## Deployment
 

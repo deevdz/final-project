@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load static from staticfiles %}
 {% load bootstrap_tags %}
-
 {% block head_js %}
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
@@ -11,7 +10,6 @@
 </script>
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 {% endblock %}
-
 {% block content %}
 <div class="container-fluid">
     <div class="header-wrap">
@@ -37,5 +35,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}

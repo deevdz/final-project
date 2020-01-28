@@ -464,7 +464,6 @@ ul.class-details {
 .btn-purple-classes {
     color:#fff;
     background-color:#9d6381;
-    border-color:#9d6381;
     border-radius: 5px;
     padding: 10px 20px;
     text-transform: uppercase;
@@ -760,7 +759,6 @@ ul.post-meta  {
 .btn-teal {
     color: #fff;
     background-color: #7ab5a7;
-    border-color: #7ab5a7;
     margin-bottom: 10px;
 }
 
@@ -1052,7 +1050,6 @@ a.btn-teal:hover {
 .btn-purple {
     color: #fff;
     background-color: #9d6381;
-    border-color: #9d6381;
     margin-right:10px;
     margin-bottom: 10px;
 }
@@ -1187,7 +1184,6 @@ footer{
 .btn-white {
     color: #000;
     background-color: #fff;
-    border-color: #fff;
     text-transform: uppercase;
     letter-spacing:1px;
     font-size:0.9em;
@@ -1201,7 +1197,7 @@ footer{
 
 footer a {
     color:#ffffff !important;
-    pointer:cursor;
+    cursor: pointer;
 }
 
 footer a:hover {
