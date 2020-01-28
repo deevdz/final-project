@@ -6,8 +6,8 @@ from django.template.defaultfilters import slugify
 from .forms import CommentForm, BlogForm
 from .models import Blog, Category, Comment
 from taggit.models import Tag
-from django.views.generic import View, ListView,
-DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import (View, ListView,
+DetailView, CreateView, UpdateView, DeleteView)
 
 
 # Searching the Blog
@@ -80,8 +80,7 @@ def get_category_count():
 # A view that displays all the blog pots on a blog page
 def blog(request):
     category_count = get_category_count()
-    blog_items = Blog.objects.filter(status='published')
-    .order_by('-created_date')
+    blog_items = Blog.objects.filter(status='published').order_by('-created_date')
     count_published = blog_items.count()
     paginator = Paginator(blog_items, 4)
     page_request_var = 'page'

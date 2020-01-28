@@ -1,6 +1,6 @@
 from django.conf.urls import url, include
-from .views import blog, blog_detail, search_blog,
-list_blog_by_category, blog_create, blog_update, blog_delete, tagged
+from .views import (blog, blog_detail, search_blog,
+list_blog_by_category, blog_create, blog_update, blog_delete, tagged)
 
 urlpatterns = [
     url(r'^$', blog, name='blog'),

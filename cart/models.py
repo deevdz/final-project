@@ -3,9 +3,11 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from products.models import Product
 
-# Cart Model
+
+# Cart Model - create a table for order line item details
 class OrderLineItem(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
     item = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
     purchased = models.BooleanField(default=False)
