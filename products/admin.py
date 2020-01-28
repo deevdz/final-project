@@ -6,6 +6,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ('title', 'status',)
     prepopulated_fields = {'slug': ('title',)}
 
+
 class WorkshopAdmin(admin.ModelAdmin):
     list_display = ('title', 'status',)
     prepopulated_fields = {'slug': ('title',)}
