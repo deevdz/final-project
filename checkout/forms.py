@@ -3,6 +3,7 @@ from .models import Address
 from .models import Order
 
 
+# Create a form to allow users to enter Billing Address
 class AddressForm(forms.ModelForm):
 
     class Meta:
