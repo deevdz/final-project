@@ -45,46 +45,32 @@ You can see the deployed version of the site [here](https://deevdz-final-project
 ## Technologies Used
 
 * [AWS Cloud 9](https://aws.amazon.com/cloud9/) - Was used to code this project.
-
 * [GitHub](https://github.com/) - Remote repository for all project code with git version control.
-
 * Adobe Photoshop & Illustrator - Design, crop and compresses images used on the site.
 
 #### Front-End Technologies
 
 * [HTML5](https://html.spec.whatwg.org/multipage/) - The fundamental code structure for all webpages.
-
 * [CSS3](http://www.css3.info/) - CSS3 is the iteration of the CSS standard used in the styling and formatting of Web pages.
-
 * [jQuery 3.2.1](https://blog.jquery.com/2017/03/20/jquery-3-2-1-now-available/) - Javascript framework used to implement custom code and initialize Bootsrtap functions.
-
 * [Bootstrap](https://getbootstrap.com/) - Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. 
-
 * [Stripe](https://stripe.com/) - The Stripe API allows individuals and businesses to make and receive debit/credit card payments over the Internet.
-
 * [Font Awesome](https://fontawesome.com/) - Used for Website Icons
-
 * [Line Icons](https://lineicons.com/) - Used for Website Icons
-
 * [Google Fonts](https://fontawesome.com/) - Used for website fonts Poppins and Prata
-
 * [Vanilla Top](https://www.npmjs.com/package/vanillatop) - Script to allow users to return to top of page
-
 * [Google Maps API](https://cloud.google.com/maps-platform/) - Used to display location on google maps
-
 
 #### Back-End Technologies
 
 **Heroku**
 
 * [Heroku](http://ww.heroku.com) - Hosting the deployed version of this project.
-
 * [Heroku Postgres - PostgreSQL](https://devcenter.heroku.com/categories/postgres-basics) is one of the world's most popular relational database management systems.
 
 **Python**
 
 * [Python 3.6.8](https://www.python.org/downloads/release/python-368/) - is an interpreted, high-level, general-purpose programming language that has gained popularity because of its clear syntax and readability and is the language used for all backend functions of this project.
-
 * [Django 1.11](https://docs.djangoproject.com/en/3.0/releases/1.11/) - Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design.
 
 #### Amazon Web Services
@@ -127,6 +113,8 @@ Further details on all Python packages used on this project can be found in the 
 
 
 ## Testing
+
+
 ## Deployment
 
 
@@ -135,21 +123,18 @@ Further details on all Python packages used on this project can be found in the 
 
 **Acknowledgements**
 
-I would like to thank my tutors and mentor at the Code Institute for all their help and support during the development of this project.
-
-Tutorials used to aid with the creation of this project - [Just Django](https://www.justdjango.com/learning-material), [Django Tutorials](https://manascode.com/), [Django Girls](https://djangogirls.org/resources/), [Polymorphic Products](https://django-polymorphic.readthedocs.io/en/stable/) and [Django Contact Forms](https://hellowebbooks.com/news/tutorial-setting-up-a-contact-form-with-django/).
-
-Code referenced for google map features [Google Map - Custom Style](https://snazzymaps.com/style/134/light-dream), [Google Map - Full width on contact page](https://mdbootstrap.com/docs/jquery/javascript/google-maps/) and [Google Map - Modal Box](https://embed.plnkr.co/plunk/ZDkUYz).
+* I would like to thank my tutors and mentor at the Code Institute for all their help and support during the development of this project.
+* Tutorials used to aid with the creation of this project - [Just Django](https://www.justdjango.com/learning-material), [Django Tutorials](https://manascode.com/), [Django Girls](https://djangogirls.org/resources/), [Polymorphic Products](https://django-polymorphic.readthedocs.io/en/stable/) and [Django Contact Forms](https://hellowebbooks.com/news/tutorial-setting-up-a-contact-form-with-django/).
+* Code referenced for google map features [Google Map - Custom Style](https://snazzymaps.com/style/134/light-dream), [Google Map - Full width on contact page](https://mdbootstrap.com/docs/jquery/javascript/google-maps/) and [Google Map - Modal Box](https://embed.plnkr.co/plunk/ZDkUYz).
 
 **Content:**
 
-All content is from the existing Headford Wellbeing Centre website which was written by the owner of the site and myself.
+* All content is from the existing Headford Wellbeing Centre website which was written by the owner of the site and myself.
 
 **Images:**
 
-Images acquired from [BigStockPhoto.com](https://www.bigstockphoto.com/) account, [Pexels](http://pexels.com), [Pixabay](https://pixabay.com/), [Unsplash](https://unsplash.com/) and [StockSnap](https://stocksnap.io/).
-
-Images from Owner of Headford Wellbeing Centre
+* Images acquired from [BigStockPhoto.com](https://www.bigstockphoto.com/) account, [Pexels](http://pexels.com), [Pixabay](https://pixabay.com/), [Unsplash](https://unsplash.com/) and [StockSnap](https://stocksnap.io/).
+* Images from Owner of Headford Wellbeing Centre
 
 **Contact**
 
