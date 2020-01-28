@@ -9,7 +9,7 @@ This submission is part of the Fullstack Software Development diploma course off
 
 ## Overview
 
-For my final project for the Code Institute I have taken inspiration from my [First Milestone Project](https://deevdz.github.io/milestone-project-1/index.html "First Milestone Project") and added features that I could only have dreamed of adding at the start of this process.
+For my [final project] (https://deevdz-final-project.herokuapp.com/) for the Code Institute I have taken inspiration from my [First Milestone Project](https://deevdz.github.io/milestone-project-1/index.html "First Milestone Project") and added features that I could only have dreamed of adding at the start of this process.
 
 **What is this website for?** 
 
@@ -29,10 +29,50 @@ A blog section was also created which allows the user to page through multiple p
 
 Additionally, the website allows users to submit an enquiry via the contact page. They will then get a reply to the email address they have indicated on the form, with a summary of their enquiry. Prior registration is not required to carry out this action.
 
+## Site Demo
+You can see the deployed version of the site [here](https://deevdz-final-project.herokuapp.com/).
 
 ## UX
+
 ## Features
+
+#### Existing Features
+
+
+#### Future Features
+
+
 ## Technologies Used
+
+-[AWS Cloud 9](https://aws.amazon.com/cloud9/) - Was used to code this project.
+-[GitHub](https://github.com/) - Remote repository for all project code with git version control.
+-Adobe Photoshop & Illustrator - Design, crop and compresses images used on the site.
+
+**Front-End Technologies**
+
+-[HTML5](https://html.spec.whatwg.org/multipage/) - The fundamental code structure for all webpages.
+-[CSS3](http://www.css3.info/) - CSS3 is the iteration of the CSS standard used in the styling and formatting of Web pages.
+-[jQuery 3.2.1](https://blog.jquery.com/2017/03/20/jquery-3-2-1-now-available/) - Javascript framework used to implement custom code and initialize Bootsrtap functions.
+-[Bootstrap](https://getbootstrap.com/) - Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. 
+-[Stripe](https://stripe.com/) - The Stripe API allows individuals and businesses to make and receive debit/credit card payments over the Internet.
+
+Back-End Technologies
+
+**Heroku**
+
+-[Heroku](http://ww.heroku.com) - Hosting the deployed version of this project.
+-[Heroku Postgres - PostgreSQL](https://devcenter.heroku.com/categories/postgres-basics) is one of the world's most popular relational database management systems.
+
+**Python**
+
+-[Python 3.6.8](https://www.python.org/downloads/release/python-368/) - is an interpreted, high-level, general-purpose programming language that has gained popularity because of its clear syntax and readability and is the language used for all backend functions of this project.
+-[Django 1.11](https://docs.djangoproject.com/en/3.0/releases/1.11/) - Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design.
+
+**Amazon Web Services**
+
+-[Amazon S3](https://aws.amazon.com/free/storage/) - Amazon Simple Storage Service is a service offered by Amazon Web Services that provides object storage through a web service interface. Used to store staticfiles and media folders and files.
+
+
 ## Testing
 ## Deployment
 ## Credits
@@ -43,5 +83,5 @@ I would like to thank my tutors and mentor at the Code Institute for all their h
 
 **Contact**
 
-Created by (Deirdre van der Zee)[mailto:deirdrevanderzee@gmail.com].
+Created by [Deirdre van der Zee](mailto:deirdrevanderzee@gmail.com).
 
