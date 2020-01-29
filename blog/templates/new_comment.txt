@@ -1,0 +1,9 @@
+{% load i18n %}{% autoescape off %}
+{% blocktrans with site_name=current_site.name %}
+A new comment has been submitted on the blog post "{{blog}}" on the {{ site_name }} website.
+
+Visit the admin section of {{ site_name }} to review the comment for approval.
+{% endblocktrans %}
+{% endautoescape %}
+
+

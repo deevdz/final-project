@@ -114,20 +114,20 @@ def charge(request):
                     products.save()
                 else:
                     products.save()
-                orders = Order.objects.filter(user=request.user,
-                                              ordered=True).order_by('-pk')[0]
-                subject = 'Order Confirmation'
-                message = ('Thank you for your order.'
-                           'We will be in contact with you shortly.')
-                from_email = settings.EMAIL_HOST_USER
-                msg_html = render_to_string('email/order_email.html',
-                                            {"orders": orders})
-                to_list = [request.user.email, settings.EMAIL_HOST_USER]
-                send_mail(subject, message, from_email, to_list,
-                          html_message=msg_html, fail_silently=True)
+            orders = Order.objects.filter(user=request.user,
+                                          ordered=True).order_by('-pk')[0]
+            subject = 'Order Confirmation'
+            message = ('Thank you for your order.'
+                        'We will be in contact with you shortly.')
+            from_email = settings.EMAIL_HOST_USER
+            msg_html = render_to_string('email/order_email.html',
+                                        {"orders": orders})
+            to_list = [request.user.email, settings.EMAIL_HOST_USER]
+            send_mail(subject, message, from_email, to_list,
+                      html_message=msg_html, fail_silently=True)
 
-            return render(request, 'charge.html',
-                          {"items": orderitems, "order": order})
+        return render(request, 'charge.html',
+                      {"items": orderitems, "order": order})
 
 
 # User can view all their orders

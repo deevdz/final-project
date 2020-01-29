@@ -30,7 +30,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3d5660b67b8f4b3b82723ec92d551938.vfs.cloud9.us-east-1.amazonaws.com', 'deevdz-final-project.herokuapp.com']
+ALLOWED_HOSTS = ['3d5660b67b8f4b3b82723ec92d551938.vfs.cloud9.us-east-1.amazonaws.com',
+                 'deevdz-final-project.herokuapp.com']
 
 
 # Application definition
@@ -175,7 +176,7 @@ STATICFILES_DIRS = (
 STATICFILES_LOCATION = 'static'
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
-MEDIA_URL ='/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIAFILES_LOCATION = 'media'
@@ -192,8 +193,10 @@ EMAIL_HOST_USER = os.getenv("EMAIL_ADDRESS")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_PASSWORD")
 EMAIL_PORT = 587
 
-ACCOUNT_EMAIL_REQUIRED=True
+ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION='mandatory'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
-
+ADMINS = [
+    ("Site Administrator", EMAIL_HOST_USER)
+]

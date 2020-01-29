@@ -100,7 +100,7 @@ def contact(request):
             to_list = [contact_email, settings.EMAIL_HOST_USER]
             send_mail(subject, message, from_email,
                       to_list, fail_silently=True)
-            messages.success(request, "Success. Thanks for getting in touch!")
+            messages.success(request, "Thank you for contacting us! Someone will be in touch soon.")
     return render(request, 'contact.html', {'form': form_class, })
 
 

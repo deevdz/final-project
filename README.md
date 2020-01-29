@@ -37,9 +37,18 @@ You can see the deployed version of the site [here](https://deevdz-final-project
 ## Features
 
 #### Existing Features
+* Responsive design ensures the website displays well on any screen size and device type.
+* User authentication and authorisation - handling registration, logging in and logging out users who are not logged in will see a Register and Log In options in the Navigation bar, but those who are - will see a view orders and Log Out options instead. Administrators will be given extra options to create, update and delete posts.
+* Contact form functionality allows users to fill out a form, which after submission will trigger an email to be sent to them using Gmail SMTP (and my own Gmail account). Logged in users will have the email field of the contact form automatically populated.
+* 
+
+
+
 
 
 #### Future Features
+* Filtering the workshops by location or month.
+* Adding a shop that also sells physical products
 
 
 ## Technologies Used
@@ -113,6 +122,8 @@ Further details on all Python packages used on this project can be found in the 
 
 
 ## Testing
+
+Testing for this project has been completed using both automated and manual methods. At the Code Insititute, we are encouraged to code using Test Driven Design methods. Automatic testing has never been my strong point, but testing itself is important. 
 
 ### Automated Testing
 

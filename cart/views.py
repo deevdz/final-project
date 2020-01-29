@@ -37,7 +37,7 @@ def add_to_cart(request, slug):
                 order_item.quantity += 1
                 order_item.save()
                 messages.info(request,
-                              f"{item.title} quantity has updated.{item.available_places}")
+                              f"{item.title} quantity has updated.")
                 return redirect("view_cart")
         else:
             order.orderitems.add(order_item)
