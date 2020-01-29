@@ -25,7 +25,16 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 col-md-8 mt-40 mb-80">
+      <div class="col-sm-12 col-md-8 mt-20">
+          {% if messages %}
+            <ul class="messages">
+              {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+      </div>
+      <div class="col-sm-12 col-md-8 mt-20 mb-80">
             {% if request.user.is_staff %}
               <button class="btn btn-info blog-button"><i class="lni-spinner-arrow"></i> <a href="{% url 'blog_update' slug=blog.slug %}">Update Post</a></button>
               <button class="btn btn-danger blog-button"><i class="lni-eraser"></i><a href="{% url 'blog_delete' slug=blog.slug%}">Delete Post</a></button>

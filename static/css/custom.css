@@ -47,6 +47,10 @@ label {
     font-family: Poppins;
 }
 
+.messages {
+    background:#fafafa;
+    padding:10px;
+}
 
 /* Navigation */
 

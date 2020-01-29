@@ -139,7 +139,7 @@ def blog_detail(request, slug):
             content = template.render(context)
             subject = 'Comment Awaiting approval'
             mail_admins(subject, content, fail_silently=True)
-            
+            messages.success(request, "Your comment has been submitted and is awaiting approval.")
             return redirect(reverse('blog_detail',
                             kwargs={'slug': blog.slug}))
 
