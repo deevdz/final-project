@@ -38,14 +38,12 @@ You can see the deployed version of the site [here](https://deevdz-final-project
 
 #### Existing Features
 * Responsive design ensures the website displays well on any screen size and device type.
+* Homepage slider was created which allows the site administrator to add slides through the administration section of the site. This feature allows the administrator to add a title and subtitle, slider image, text that will be displayed on the button, the link for the button and the alignment of the text. The administrator also has the option to leave the slide as a draft or publish to the site.
 * User authentication and authorisation - handling registration, logging in and logging out. Users who are not logged in will see Register and Log In options in the Navigation bar, but those who are logged in - will see a view orders and Log Out option instead. Administrators will be given extra options to create, update and delete posts.
 * Contact form functionality allows users to fill out a form, which after submission will trigger an email to be sent to them using Gmail SMTP (and my own Gmail account). Logged in users will have the email field of the contact form automatically populated.
-* Administrators have the option to Create, Update and Delete Blog posts from both the frontend and backend administration part of the site. Registered users are able to submit comments on individual blog posts. When a comment is submitted the site administrator is automatically emailed about the submission and prompted to review for approval. When a comment is approved it appears on the site. Blog posts can be searched and also filtered by category or tag.
-* 
-
-
-
-
+* Administrators have the option to Create, Update and Delete Blog posts from both the frontend and backend administration part of the site. Registered users are able to submit comments on individual blog posts. When a comment is submitted the site administrator is automatically emailed about the submission and prompted to review for approval. When a comment is approved it appears on the site. Blog posts can be searched and also filtered by category or tag. Pagination is in place and 4 posts are displayed per page.
+* Product Pages - both a shop page and a workshop page was established on the site. Products were created using polymorphism. This allows the products to share common features but also allow products, in this case the workshops/events to have different product fields than other products. Workshops/Events have date and time fields, location of the event and the number of available places at this event.
+* Cart and Checkout functionality - the Cart app stores the information of each product that is added to it and displays a cart total. Users can increase, decrease and remove items from the cart. In relation to workshops there is a check in place to see if there are enough places available on the workshop. The Checkout app also stores this information and displays a total but additionally sends the user to a Stripe form to enter payment details. On successfully completing their order users can view their order and any preious orders. 
 
 #### Future Features
 * Filtering the workshops by location or month when the workshop is occuring.
@@ -119,16 +117,32 @@ Further details on all Python packages used on this project can be found in the 
 <li>stripe==2.38.0 - Python library for Stripe’s API</li>
 <li>urllib3==1.22 - Powerful, sanity-friendly HTTP client for Python</li>
 </ul>
+</summary>
 </details>
 
 
 ## Testing
 
-Testing for this project has been completed using both automated and manual methods. At the Code Insititute, we are encouraged to code using Test Driven Design methods. Automatic testing has never been my strong point, but testing itself is important. For this project I have created automated tests, carried out extensive manual testing and passed the site code through validators.
+Testing for this project has been completed using both automated and manual methods. At the Code Insititute, we are encouraged to code using Test Driven Design methods. Automated testing has never been my strong point, but testing itself is important. For this project I have created automated tests, carried out extensive manual testing and passed the site code through validators.
 
 ### Automated Testing
 
+Each app has their own tests created using Django TestCase class. All views, forms and pages were tested as much as possible using unit tests. In all, 24 tests were written. All tests pass successfully.
+
+Travis-CI integration has been completed and also shows all tests completing successfully, with the project showing as "build: passing".
+
 ### Manual Testing
+
+In conjunction with the automated testing the website was constantly tested during the development process. Browser developer tools were used to test HTML, CSS, JavaScript and responses from the server. Extensive manual testing has been completed to check that the site performs as it should in different environments and in different browsers.
+
+<details>
+<summary>Click to see details of manual testing below.</summary>
+<ul>
+<li></li>
+</ul>
+</summary>
+</details>
+
 
 ### Validators
 
@@ -153,6 +167,44 @@ All Python code was passed through the [PEP8 Online validator](http://pep8online
 
 ## Deployment
 
+Having choosen Cloud9 as my IDE, the following steps were carried out:
+
+* Install Python3 and Django to run the application.
+* Create project - yogastudio
+* Cloud9 included in the list of ALLOWED_HOSTS in staging settings, later heroku url will be added to ALLOWED_HOSTS
+* Add run command to bashrc file 
+* Create git repository - Initialise the repository, add files not required to the gitignore file. Carry out a `git add` and `git commit - "Initial Commit" `.
+* Set up templates and static folders
+* Create a env.py file containing the following environmental variables (add env.py file to the gitignore list):
+ ```
+STRIPE_PUBLISHABLE - Used solely to identify your account with Stripe; it isn't secret.
+STRIPE_SECRET - Can perform any API request to Stripe without restriction.
+DATABASE_URL - Remote PostgreSQL database link if using a remote database.
+SECRET_KEY - Standard secret key, any value.
+EMAIL_ADDRESS - to send correspondence from the site.
+EMAIL_PASSWORD - authenticate email account.
+AWS_ACCESS_KEY_ID - AWS user credentials.
+AWS_SECRET_ACCESS_KEY - AWS S3 credentials.
+```
+* Generate a requirements.txt file so Heroku can install the required dependencies to run the app. `sudo pip3 freeze --local > requirements.txt`. The contents of the requirements.txt is referenced above.
+* Python package gunicorn was installed
+* Create a Procfile to tell Heroku what type of application is being deployed, and how to run it. `web: gunicorn yogastudio.wsgi:application`
+* Create a new app on Heroku to host and run the site
+* In Heroku go to resources and add a Postgres Database
+* Retrieve the Postgres DB url and add to the env.py on cloud9
+* In the settings.py file update the DB details to look at the DB hosted on Heroku
+* This is followed by migrations `python3 manage.py makemigrations` and `python3 manage.py migrate` to  create tables on heroku database.
+* Create a super user on the new DB `python3 manage.py createsuperuser`
+* In Heroku, connect newly created app to the correct github repository.
+* Set up config vars that are currently stored in our env.py file on Heroku.
+* Create a bucket on Amazon S3, set up the appropriate permissions, groups, users and policies.
+* In Cloud9 install the following: django-storages and boto3. `sudo pip3 install django-storages`, `sudo pip3 install boto3`, 
+* Create a custom_storages.py file and add static file settings and media storage information to the setting.py file.
+* Run `python3 manage.py collectstatic`
+* Add DISABLE_COLLECTSTATIC with the value of 1 to the Config Variables on Heroku
+* Enable automatic deploys from github to heroku.
+* On completion of the project debug mode was set to False in the settings.py file.
+ 
 
 
 ## Credits
