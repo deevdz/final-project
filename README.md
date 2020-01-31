@@ -72,7 +72,7 @@ The studio is an established business so I am using the existing logo which I de
 
 #### Wireframes
 
-The wireframes for this site were generated using Adobe Illustrator. Wireframes for the site can be found in the folder planning > wireframes.
+The wireframes for this site were generated using Adobe Illustrator. Wireframes for the site can be found in the folder [planning > wireframes](https://github.com/deevdz/final-project/tree/master/planning/wireframes).
 
 ## Features
 
