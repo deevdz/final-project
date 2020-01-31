@@ -34,7 +34,7 @@ You can see the deployed version of the site [here](https://deevdz-final-project
 
 ## UX
 
-Documentation for the initial planning process can be [found here]()
+Documentation for the initial planning process can be [found here](https://github.com/deevdz/final-project/blob/master/planning/Yoga%20Studio%20Website%20-%20Initial%20Thoughts.pdf)
 
 #### User Stories
 
@@ -72,6 +72,7 @@ The studio is an established business so I am using the existing logo which I de
 
 #### Wireframes
 
+The wireframes for this site were generated using Adobe Illustrator. Wireframes for the site can be found in the folder planning > wireframes.
 
 ## Features
 
