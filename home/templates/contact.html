@@ -28,7 +28,7 @@
                   </div>
                   <div class="form-group">
                     <label>{{ form.contact_name.label_tag }}</label>
-                    <input type="text" class="form-control" id="contact_name" name="contact_name" aria-describedby="EnterName" placeholder="Enter name (required)">
+                    <input type="text" required class="form-control" id="contact_name" name="contact_name" aria-describedby="EnterName" placeholder="Enter name (required)">
                   </div>
                   <div class="form-group">
                     <label>{{ form.contact_email.label_tag }}</label>
@@ -36,7 +36,7 @@
                   </div>
                   <div class="form-group">
                     <label>{{ form.content.label_tag }}</label>
-                    <textarea class="form-control" name="content" id="content" placeholder="Your question here (required)" rows="5"></textarea>
+                    <textarea required  class="form-control" name="content" id="content" placeholder="Your question here (required)" rows="5"></textarea>
                   </div>
                   <button type="submit" class="btn btn-teal">Submit</button>
                 </form>            
@@ -49,15 +49,15 @@
                   </div>
                   <div class="form-group">
                     <label>{{ form.contact_name.label_tag }}</label>
-                    <input type="text" class="form-control" id="contact_name" name="contact_name" aria-describedby="EnterName" placeholder="Enter name (required)">
+                    <input required type="text" class="form-control" id="contact_name" name="contact_name" aria-describedby="EnterName" placeholder="Enter name (required)">
                   </div>
                   <div class="form-group">
                     <label>{{ form.contact_email.label_tag }}</label>
-                    <input type="email"  class="form-control" id="contact_email" name="contact_email" placeholder="Enter email (required)">
+                    <input required type="email"  class="form-control" id="contact_email" name="contact_email" placeholder="Enter email (required)">
                   </div>
                   <div class="form-group">
                     <label>{{ form.content.label_tag }}</label>
-                    <textarea class="form-control" name="content" id="content" placeholder="Your question here (required)" rows="5"></textarea>
+                    <textarea required class="form-control" name="content" id="content" placeholder="Your question here (required)" rows="5"></textarea>
                   </div>
                   <button type="submit" class="btn btn-teal">Submit</button>
                 </form>  

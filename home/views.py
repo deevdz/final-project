@@ -15,7 +15,7 @@ from .forms import ContactForm
 def index(request):
     """A view that displays the Homepage"""
     slides = HomepageSlider.objects.filter(status='published').order_by('?')[:3]
-    blog_posts = Blog.objects.filter(status='published').order_by('-created_date')[:3]
+    blog_posts = Blog.objects.filter(status='published').order_by('-published')[:3]
     upcoming_workshops = Workshop.objects.filter(status='published', workshop_end_date__gt=timezone.now()).order_by('?')[:1]
 
     context = {

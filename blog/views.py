@@ -87,7 +87,7 @@ def get_category_count():
 # Pagination in place with 4 posts displayed per page
 def blog(request):
     category_count = get_category_count()
-    blog_items = Blog.objects.filter(status='published').order_by('-created_date')
+    blog_items = Blog.objects.filter(status='published').order_by('-published')
     count_published = blog_items.count()
     paginator = Paginator(blog_items, 4)
     page_request_var = 'page'

@@ -38,17 +38,19 @@ You can see the deployed version of the site [here](https://deevdz-final-project
 
 #### Existing Features
 * Responsive design ensures the website displays well on any screen size and device type.
-* Homepage slider was created which allows the site administrator to add slides through the administration section of the site. This feature allows the administrator to add a title and subtitle, slider image, text that will be displayed on the button, the link for the button and the alignment of the text. The administrator also has the option to leave the slide as a draft or publish to the site.
-* User authentication and authorisation - handling registration, logging in and logging out. Users who are not logged in will see Register and Log In options in the Navigation bar, but those who are logged in - will see a view orders and Log Out option instead. Administrators will be given extra options to create, update and delete posts.
-* Contact form functionality allows users to fill out a form, which after submission will trigger an email to be sent to them using Gmail SMTP (and my own Gmail account). Logged in users will have the email field of the contact form automatically populated.
-* Administrators have the option to Create, Update and Delete Blog posts from both the frontend and backend administration part of the site. Registered users are able to submit comments on individual blog posts. When a comment is submitted the site administrator is automatically emailed about the submission and prompted to review for approval. When a comment is approved it appears on the site. Blog posts can be searched and also filtered by category or tag. Pagination is in place and 4 posts are displayed per page.
-* Product Pages - both a shop page and a workshop page was established on the site. Products were created using polymorphism. This allows the products to share common features but also allow products, in this case the workshops/events to have different product fields than other products. Workshops/Events have date and time fields, location of the event and the number of available places at this event.
-* Cart and Checkout functionality - the Cart app stores the information of each product that is added to it and displays a cart total. Users can increase, decrease and remove items from the cart. In relation to workshops there is a check in place to see if there are enough places available on the workshop. The Checkout app also stores this information and displays a total but additionally sends the user to a Stripe form to enter payment details. On successfully completing their order users can view their order and any preious orders. 
+* __Homepage slider__ was created which allows the site administrator to add slides through the administration section of the site. This feature allows the administrator to add a title and subtitle, slider image, text that will be displayed on the button, the link for the button and the alignment of the text. The administrator also has the option to leave the slide as a draft or publish to the site.
+* __User authentication and authorisation__ - handling registration, logging in and logging out. Users who are not logged in will see Register and Log In options in the Navigation bar, but those who are logged in - will see a view orders and Log Out option instead. Administrators will be given extra options to create, update and delete posts.
+* __Contact form__ functionality allows users to fill out a form, which after submission will trigger an email to be sent to them using Gmail SMTP (and my own Gmail account). Logged in users will have the email field of the contact form automatically populated.
+* __Blog__ Administrators have the option to Create, Update and Delete Blog posts from both the frontend and backend administration part of the site. Registered users are able to submit comments on individual blog posts. When a comment is submitted the site administrator is automatically emailed about the submission and prompted to review for approval. When a comment is approved it appears on the site. Blog posts can be searched and also filtered by category or tag. Pagination is in place and 4 posts are displayed per page.
+* __Product Pages__ - both a shop page and a workshop page was established on the site. Products were created using polymorphism. This allows the products to share common features but also allow products, in this case the workshops/events to have different product fields than other products. Workshops/Events have date and time fields, location of the event and the number of available places at this event.
+* __Cart and Checkout functionality__ - the Cart app stores the information of each product that is added to it and displays a cart total. Users can increase, decrease and remove items from the cart. In relation to workshops there is a check in place to see if there are enough places available on the workshop. The Checkout app also stores this information and displays a total but additionally sends the user to a Stripe form to enter payment details. On successfully completing their order users can view their order and any preious orders. 
+* __Error Pages__ The site features custom error pages for both 404 and 500 errors.
+
 
 #### Future Features
-* Filtering the workshops by location or month when the workshop is occuring.
-* Adding a shop that also sells physical products hence adding an option for shipping cost and shipping address
-
+* __Workshops/Events__ Filtering the workshops by location or month when the workshop is occuring.
+* __Products and Checkout__ Adding a shop that also sells physical products hence adding an option for shipping cost and shipping address
+* __Administration Dashboard__ Show a graphical representation of product sales.
 
 ## Technologies Used
 
@@ -137,8 +139,91 @@ In conjunction with the automated testing the website was constantly tested duri
 
 <details>
 <summary>Click to see details of manual testing below.</summary>
+<h5>Homepage</h5>
 <ul>
-<li></li>
+<li>Click on logo or Home and verify that home page appears.</li>
+<li>Click on navigation links and confirm they are going to the correct pages</li>
+<li>If user is not logged in “Login/Register” is displayed in the navigation (dropdown from user icon) and clicking this link will bring you to the login page.</li>
+<li>If user is logged in, the user will see the following options in the user dropdown - Username, My Orders and Logout option. If user who is logged in is a site administrator they will see an extra option to create a blog post.</li>
+<li>Ensure slider displaying slides that are published and the correct information as entered by the administrator.</li>
+<li>Click on links in three boxes and ensure they are going to the correct pages.</li>
+<li>That three blog posts display with the correct information. Ensure that only published blog posts display and are ordered with the most recent posts displaying first.</li>
+<li>Ensure that a workshop is displaying in the event section with the correct information and links. Confirmed that only future events display (past events are ignored) and that the event that is displayed is randomised.</li>
+<li>Confirmed that the social links in the footer open in a new browser window and go to the correct links. Check that the Find Us link in the footer opens a map in a lightbox to the correct location.</li>
+<li>Confirmed that the email signup links to a mailchimp account.</li>
+</ul>
+<h5>About Page</h5>
+<ul>
+<li>Confirmed that the images in the masonary gallery were opening to a lighbox. This lighbox can be paged through using arrows and exited using the x symbol.</li>
+</ul>
+<h5>Static Pages including classes and timetables</h5>
+<ul>
+<li>Confirmed that page links are working and pages are responsive.</li>
+</ul>
+<h5>Workshops Page</h5>
+<ul>
+<li>Confirmed that the correct workshops are displaying on the page with the correct details. Checked that only workshop products are displaying on this page. Only future workshops display on this page. If a workshop is in the past it no longer displays.</li>
+<li>Checked that the workshop summaries are linking to the correct workshop details page</li>
+<li>Verified that the correct number of remaining places available on workshops are displayed. Display changes depending on if there are places remaining or if the workshop s sold out</li>
+</ul>
+<h5>Workshop Details Page</h5>
+<ul>
+<li>Confirmed that the correct information and image is displaying on the page </li>
+<li>Checked that the "Add to Cart" button only displays if there are places remaining on the workshop.</li>
+<li>Confirmed that clicking the add to cart button adds one workshop to the cart. </li>
+<li>Add to Cart button is replaced with a Sold Out button if no places are remaining and confirmed that the user cannot add a sold out event to the cart</li>
+</ul>
+<h5>Blog Page</h5>
+<ul>
+<li>Confirmed that the correct information and images are displaying on the page. That 4 blog posts display per page when 4 or more blog posts are available. That only published blog posts display. That posts are ordered by most recent post first.  </li>
+<li>Clicked through to blog posts and confirmed that links are correct</li>
+<li>Used the search function to search posts and confirmed that results were correct</li>
+<li>Confirmed that category counts were correct and that clicking on categories displays posts filtered by category</li>
+<li>Checked that pagination links were working correctly.</li>
+</ul>
+<h5>Blog Post Page</h5>
+<ul>
+<li>Confirmed that the correct details and images were displaying for each individual blog post</li>
+<li>Checked that the blog post views increased for each view and that the correct number of comments were displayed</li>
+<li>Clicked on category and tag links and confirmed they redirected to the correct pages</li>
+<li>Verified that the search section in the sidebar is working as expected</li>
+<li>If user is logged in as an administrator they are given extra buttons on blog posts to allow them to update the post and delete the post</li>
+<li>Confirmed that changes made in the update post form occurred</li>
+<li>Confirmed that clicking the delete post button removes the post</li>
+<li>Checked that the next post and previous post links go to the correct posts</li>
+<li>Checked that comments were displaying as expected. Only logged in users can add a comment to the blog. When a comment is added a message is displayed to the user informing them that the comment has been put forward for approval. An email is sent to the site administrator prompting them to review the comment. Only when the comment is set to approved will it appear on the site.</li>
+</ul>
+<h5>Contact Page</h5>
+<ul>
+<li>Confirmed that the correct map location is displaying</li>
+<li>Contact Form - if user not logged in they are required to enter Name, Email and Message. Confirmed that the email was sent and received. If user logged in the email address field is prepopulated. Sent a test email and confirmed that is worked as expected.</li>
+</ul>
+<h5>Account Pages</h5>
+<ul>
+<li>I have used the AllAuth App for my account management. I have confirmed that the sign up, login, logout, forgotten password, verifying account are all working as expected.</li>
+</ul>
+<h5>Cart Page</h5>
+<ul>
+<li>Confirmed that a user can only view the cart if they are a registered logged in user.</li>
+<li>Checked that product quantaties can be increased and decreased. Also confirmed that workshop products can only be increased where the places are available. Confirmed that products can to removed from the cart.</li>
+<li>Verified that the correct products displayed in the cart when the add to cart button is clicked. Confirmed that the totals for products were correct</li>
+<li>Confirmed that the correct messages are displaying regarding adding, removing from the cart, or if the cart is empty</i>
+<li>Checked that the buttons to proceed to checkout and return to shop go to the correct pages</li>
+</ul>
+<h5>Checkout Page</h5>
+<ul>
+<li>Confirmed that the correct details have come through from the Cart Page.</li>
+<li>If user has a pre-existing address this is displayed and can be used for the order or the user can update the address and proceed with the updated version.</li>
+<li>If the user is newly registered they are prompted to add a billing address which is saved to the users account.</li>
+<li>Confirmed that the Proceed to payment brings you to the next page where you are prompted to enter your card details via a stripe popup</li>
+<li>On the pay with Stripe page confirmed that clicking the pay with card button opens a lightbox to enter payment details via stripe. Confirmed that the correct amount is being charged.</li>
+<li>Confirmed that a successful order empties the shopping cart, sends a confirmation email with order details to both user and site administrator, that in the case of workshops that the places available are decreased by the correct amount</li>
+<li>Users are given the option to view all their orders and this lists all the users orders with the quantity and product ordered displayed</li>
+</ul>
+<h5>Error Pages</h5>
+<ul>
+<li>Try going to <a href="https://deevdz-final-project.herokuapp.com/test" target="_blank">https://deevdz-final-project.herokuapp.com/test</a> and observe the custom 404 error.</li>
+<li>Confirmed that there was a working link back to the homepage and that links in the navigation are working on the 404 error page.</li>
 </ul>
 </summary>
 </details>
