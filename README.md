@@ -36,6 +36,31 @@ You can see the deployed version of the site [here](https://deevdz-final-project
 
 #### User Stories
 
+* As a user - I am immediately aware what the nature of the site is and its purpose
+* As a user - I can navigate through the site by various means i.e. Feature Slider, Navigation dropdown, homepage links
+* As a user - I can browse the site without being a logged in user
+* As a user - I can create a user profile, and log in and out
+* As a user - I can view information about the studio, on classes and timetables
+* As a user - I can view workshops being run and details of these workshops
+* As a user - I can book and pay for a place on a workshop
+* As a user - I can purchase gift vouchers and class packs
+* As a user - I can receive an email confirming my order
+* As a user - I receive an error message if I am unable to login or register
+* As a user - I receive an error message if there is an issue purchasing a product
+* As a user - I am able to access the site on mobile or tablet and have a similar experience as a desktop device
+* As a user - I can read blog posts and comment on the post if I am a logged in user
+* As a user - I can filter blog posts by category or post tag
+* As a user - I can see the number of approved comments associated with a blog post
+* As a user - I can see how many times a blog post has been viewed
+* As a user - I can view previous orders I have made.
+* As a user - I am able to see the details of the recipe
+* As a user - I am able to page through blog posts if there are more than 4 posts
+* As a user - I am able to contact the site administrator through a contact form and may or may not be a logged in user
+* As an administrator - I can add, update and delete blog posts
+* As an administrator - I can approve comments to display on the site
+* As an administrator - I can receive an email about successful site orders
+* As an administrator - I can receive an email when a new comment has been submitted to the site
+
 #### Typography
 
 Research was carried out on complimentary fonts and [Poppins](https://fonts.google.com/specimen/Poppins) and [Prata](https://fonts.google.com/specimen/Prata) were chosen for the site.
@@ -43,6 +68,7 @@ Research was carried out on complimentary fonts and [Poppins](https://fonts.goog
 #### Colour Scheme and Logo
 
 The studio is an established business so I am using the existing logo which I designed many years ago. I also have taken the existing colour scheme but extended it with the help of the [Coolors](https://coolors.co/392f23-7ab5a7-99b8d1-cecccc-9d6381) colour generator.
+
 #### Wireframes
 
 
@@ -51,9 +77,9 @@ The studio is an established business so I am using the existing logo which I de
 #### Existing Features
 * Responsive design ensures the website displays well on any screen size and device type.
 * __Homepage slider__ was created which allows the site administrator to add slides through the administration section of the site. This feature allows the administrator to add a title and subtitle, slider image, text that will be displayed on the button, the link for the button and the alignment of the text. The administrator also has the option to leave the slide as a draft or publish to the site.
-* __User authentication and authorisation__ - handling registration, logging in and logging out. Users who are not logged in will see Register and Log In options in the Navigation bar, but those who are logged in - will see a view orders and Log Out option instead. Administrators will be given extra options to create, update and delete posts.
+* __User authentication and authorisation__ - handling registration, logging in and logging out. Users who are not logged in will see Register and Log In options in the Navigation bar, but those who are logged in - will see a view orders and Log Out option instead. Administrators will be given extra options to create, update and delete posts. User Authentication was carried out using the [AllAuth app](https://django-allauth.readthedocs.io/en/latest/installation.html).
 * __Contact form__ functionality allows users to fill out a form, which after submission will trigger an email to be sent to them using Gmail SMTP (and my own Gmail account). Logged in users will have the email field of the contact form automatically populated.
-* __Blog__ Administrators have the option to Create, Update and Delete Blog posts from both the frontend and backend administration part of the site. Registered users are able to submit comments on individual blog posts. When a comment is submitted the site administrator is automatically emailed about the submission and prompted to review for approval. When a comment is approved it appears on the site. Blog posts can be searched and also filtered by category or tag. Pagination is in place and 4 posts are displayed per page.
+* __Blog__ Administrators have the option to Create, Update and Delete Blog posts from both the frontend and backend administration part of the site. Registered users are able to submit comments on individual blog posts. When a comment is submitted the site administrator is automatically emailed about the submission and prompted to review for approval. When a comment is approved it appears on the site. Blog posts can be searched and also filtered by category or tag. Pagination is in place and 4 posts are displayed per page. Tags are generated using the [django-taggit app](https://django-taggit.readthedocs.io/en/latest/)
 * __Product Pages__ - both a shop page and a workshop page was established on the site. Products were created using polymorphism. This allows the products to share common features but also allow products, in this case the workshops/events to have different product fields than other products. Workshops/Events have date and time fields, location of the event and the number of available places at this event.
 * __Cart and Checkout functionality__ - the Cart app stores the information of each product that is added to it and displays a cart total. Users can increase, decrease and remove items from the cart. In relation to workshops there is a check in place to see if there are enough places available on the workshop. The Checkout app also stores this information and displays a total but additionally sends the user to a Stripe form to enter payment details. On successfully completing their order users can view their order and any preious orders. 
 * __Error Pages__ The site features custom error pages for both 404 and 500 errors.
@@ -63,6 +89,7 @@ The studio is an established business so I am using the existing logo which I de
 * __Workshops/Events__ Filtering the workshops by location or month when the workshop is occuring.
 * __Products and Checkout__ Adding a shop that also sells physical products hence adding an option for shipping cost and shipping address
 * __Administration Dashboard__ Show a graphical representation of product sales.
+* __Social Login__ Offer users the option to signup and login to the site via social media accounts.
 
 ## Technologies Used
 
@@ -100,6 +127,11 @@ The studio is an established business so I am using the existing logo which I de
 * [Amazon S3](https://aws.amazon.com/free/storage/) - Amazon Simple Storage Service is a service offered by Amazon Web Services that provides object storage through a web service interface. Used to store staticfiles and media folders and files.
 
 Further details on all Python packages used on this project can be found in the requirements.txt file. 
+
+#### Installed Apps
+
+* [django-taggit](https://django-taggit.readthedocs.io/en/latest/) - is a reusable Django application designed to make adding tagging to your project easy and fun.
+* [AllAuth](https://django-allauth.readthedocs.io/en/latest/overview.html) - Supports multiple authentication schemes (e.g. login by user name, or by e-mail), as well as multiple strategies for account verification (ranging from none to e-mail verification).
 
 <details>
 <summary>CLICK HERE to expand the full requirements.txt details.</summary>
@@ -248,6 +280,7 @@ In conjunction with the automated testing the website was constantly tested duri
 <li>Issue - Polymorphic Products, I wanted to include an available number of places on workshop products. This caused issues when I wanted to decrease places on purchase for the other product types. Fix - introduced a product type dropdown and then checked the product type. If the product type is workshop then decrease the places available by the correct amount. If the product type is not workshop then ignore the places available decrease and move on with the order.</li>
 <li>Issue - Removing items from the cart - I found that if I had more than one of a product type in the cart I had issues removing it from the cart. Fix - the remove from cart trashcan icon is only displayed when there is one of a product in the cart.</li>
 <li>Issue - Comment counts. I wanted each post to display the number of comments that were associated with a blog post but my count was incorrect as it was counting all comments (including comments from other posts). Fix - Set up a get_comments property in the blog model that returned a count of only the comments associated with the post. I also introduced the approval system for comments as prior to this all comments were automatically displayed which could lead to inappropriate comments and/or spam.</li>
+<li>Issue - Shop display on mobiles. I found that the products in the shop weren't displaying as I hoped on mobile devices. Fix - I used Javascript to atler classes based on the screen size.
 </ul>
 </summary>
 </details>

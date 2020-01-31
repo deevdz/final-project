@@ -1,3 +1,4 @@
+//Add and remove classes to the class event-section based on the screen size of the device
 jQuery(document).ready(function($) {
   var alterClass = function() {
     var ww = document.body.clientWidth;

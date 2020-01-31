@@ -1250,7 +1250,7 @@ footer a:hover {
 }
 
 .mb-120 {
-    margin-bottom:120px;
+    margin-bottom: 120px;
 }
 /*-----Mobile and Tablet Styles-----*/
 
@@ -1271,6 +1271,10 @@ body {
   left: 50%;
   position: absolute;
   top:0;
+}
+
+.navbar-collapse {
+    padding-top:50px;
 }
 
 .box-section-pre-title {
