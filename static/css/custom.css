@@ -133,6 +133,10 @@ label {
     text-align: left;
 }
 
+.carousel-image {
+    height:500px;
+}
+
 .slider-left-aligned {
     bottom: 30%;
     left: 10%;
@@ -1275,6 +1279,10 @@ body {
 
 .navbar-collapse {
     padding-top:50px;
+}
+
+.carousel-image {
+    height: 400px;
 }
 
 .box-section-pre-title {

@@ -5,7 +5,7 @@ Full Stack Development Project
 
 ### Yoga Studio Site with Blog, Shop and Events - Full Stack Development Project for the Code Institute
 
-This submission is part of the Fullstack Software Development diploma course offered by Code Institute.
+This submission is part of the Full Stack Software Development diploma course offered by Code Institute.
 
 ## Overview
 
@@ -17,13 +17,13 @@ This Project is designed to allow users to view information and timetables for a
 
 **What does it do?** 
 
-The website provides an online presence for a yoga studio and allows users to register on it, log in and log out, to send an enquiry to the studio via the contact form and to purchase the products on offer on both the workshops page and the shop page. 
+The website provides an online presence for a yoga studio and allows users to register, log in and log out, to send an enquiry to the studio via the contact form and to purchase the products on offer on both the workshops page and the shop page. 
 
 Users are also able to find out a bit about the studio, classes on offer, workshops available and read and comment on blog posts.
 
 **How does it work?** 
 
-The site's major functionality is to allow users to purchase gift vouchers, class packs and workshops. To be able to add items to their cart users must first register or login to the site. The final stage is to fill in some billing information (user can enter new information or use previously saved information) and enter debit/credit card details via stripe to complete the order. Users will receive an email notification of their order with instructions on how they will receive their product.
+The site's major functionality is to allow users to purchase gift vouchers, class packs and workshops. To be able to add items to their cart users must first register or login to the site. The final stage is to fill in some billing information (user can enter new information or use previously saved information) and enter debit/credit card details via Stripe to complete the order. Users will receive an email notification of their order with instructions on how they will receive their product.
 
 A blog section was also created which allows the user to page through multiple posts, comment on individual posts, search posts and filter posts by category or tag. Comments must be approved by the site administrator to appear on the site.
 
@@ -72,7 +72,7 @@ Documentation for the initial planning process can be [found here](https://githu
 
 #### Typography
 
-Research was carried out on complimentary fonts and [Poppins](https://fonts.google.com/specimen/Poppins) and [Prata](https://fonts.google.com/specimen/Prata) were chosen for the site.
+Research was carried out on complementary fonts and [Poppins](https://fonts.google.com/specimen/Poppins) and [Prata](https://fonts.google.com/specimen/Prata) were chosen for the site.
 
 #### Colour Scheme and Logo
 
@@ -111,7 +111,7 @@ The wireframes for this site were generated using Adobe Illustrator. Wireframes 
 
 * [HTML5](https://html.spec.whatwg.org/multipage/) - The fundamental code structure for all webpages.
 * [CSS3](http://www.css3.info/) - CSS3 is the iteration of the CSS standard used in the styling and formatting of Web pages.
-* [jQuery 3.2.1](https://blog.jquery.com/2017/03/20/jquery-3-2-1-now-available/) - Javascript framework used to implement custom code and initialize Bootsrtap functions.
+* [jQuery 3.2.1](https://blog.jquery.com/2017/03/20/jquery-3-2-1-now-available/) - Javascript framework used to implement custom code and initialize Bootstrap functions.
 * [Bootstrap](https://getbootstrap.com/) - Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. 
 * [Stripe](https://stripe.com/) - The Stripe API allows individuals and businesses to make and receive debit/credit card payments over the Internet.
 * [Font Awesome](https://fontawesome.com/) - Used for Website Icons
@@ -198,17 +198,17 @@ In conjunction with the automated testing the website was constantly tested duri
 <li>Click on logo or Home and verify that home page appears.</li>
 <li>Click on navigation links and confirm they are going to the correct pages</li>
 <li>If user is not logged in “Login/Register” is displayed in the navigation (dropdown from user icon) and clicking this link will bring you to the login page.</li>
-<li>If user is logged in, the user will see the following options in the user dropdown - Username, My Orders and Logout option. If user who is logged in is a site administrator they will see an extra option to create a blog post.</li>
+<li>If user is logged in, the user will see the following options in the user dropdown - Username, My Orders and Logout option. If logged in user is a site administrator they will see an extra option to create a blog post.</li>
 <li>Ensure slider displaying slides that are published and the correct information as entered by the administrator.</li>
 <li>Click on links in three boxes and ensure they are going to the correct pages.</li>
-<li>That three blog posts display with the correct information. Ensure that only published blog posts display and are ordered with the most recent posts displaying first.</li>
+<li>Confirmed that three blog posts display with the correct information. Ensure that only published blog posts display and are ordered with the most recent posts displaying first.</li>
 <li>Ensure that a workshop is displaying in the event section with the correct information and links. Confirmed that only future events display (past events are ignored) and that the event that is displayed is randomised.</li>
 <li>Confirmed that the social links in the footer open in a new browser window and go to the correct links. Check that the Find Us link in the footer opens a map in a lightbox to the correct location.</li>
 <li>Confirmed that the email signup links to a mailchimp account.</li>
 </ul>
 <h5>About Page</h5>
 <ul>
-<li>Confirmed that the images in the masonary gallery were opening to a lighbox. This lighbox can be paged through using arrows and exited using the x symbol.</li>
+<li>Confirmed that the images in the masonry gallery were opening to a lightbox. This lightbox can be paged through using arrows and exited using the x symbol.</li>
 </ul>
 <h5>Static Pages including classes and timetables</h5>
 <ul>
@@ -264,7 +264,7 @@ In conjunction with the automated testing the website was constantly tested duri
 <h5>Cart Page</h5>
 <ul>
 <li>Confirmed that a user can only view the cart if they are a registered logged in user.</li>
-<li>Checked that product quantaties can be increased and decreased. Also confirmed that workshop products can only be increased where the places are available. Confirmed that products can to removed from the cart.</li>
+<li>Checked that product quantities can be increased and decreased. Also confirmed that workshop products can only be increased where the places are available. Confirmed that products can be removed from the cart.</li>
 <li>Verified that the correct products displayed in the cart when the add to cart button is clicked. Confirmed that the totals for products were correct</li>
 <li>Confirmed that the correct messages are displaying regarding adding, removing from the cart, or if the cart is empty</i>
 <li>Checked that the buttons to proceed to checkout and return to shop go to the correct pages</li>
@@ -274,8 +274,8 @@ In conjunction with the automated testing the website was constantly tested duri
 <li>Confirmed that the correct details have come through from the Cart Page.</li>
 <li>If user has a pre-existing address this is displayed and can be used for the order or the user can update the address and proceed with the updated version.</li>
 <li>If the user is newly registered they are prompted to add a billing address which is saved to the users account.</li>
-<li>Confirmed that the Proceed to payment brings you to the next page where you are prompted to enter your card details via a stripe popup</li>
-<li>On the pay with Stripe page confirmed that clicking the pay with card button opens a lightbox to enter payment details via stripe. Confirmed that the correct amount is being charged.</li>
+<li>Confirmed that the Proceed to payment brings you to the next page where you are prompted to enter your card details via a Stripe popup</li>
+<li>On the pay with Stripe page confirmed that clicking the pay with card button opens a lightbox to enter payment details via Stripe. Confirmed that the correct amount is being charged.</li>
 <li>Confirmed that a successful order empties the shopping cart, sends a confirmation email with order details to both user and site administrator, that in the case of workshops that the places available are decreased by the correct amount</li>
 <li>Users are given the option to view all their orders and this lists all the users orders with the quantity and product ordered displayed</li>
 </ul>
@@ -290,7 +290,7 @@ In conjunction with the automated testing the website was constantly tested duri
 <li>Issue - Polymorphic Products, I wanted to include an available number of places on workshop products. This caused issues when I wanted to decrease places on purchase for the other product types. Fix - introduced a product type dropdown and then checked the product type. If the product type is workshop then decrease the places available by the correct amount. If the product type is not workshop then ignore the places available decrease and move on with the order.</li>
 <li>Issue - Removing items from the cart - I found that if I had more than one of a product type in the cart I had issues removing it from the cart. Fix - the remove from cart trashcan icon is only displayed when there is one of a product in the cart.</li>
 <li>Issue - Comment counts. I wanted each post to display the number of comments that were associated with a blog post but my count was incorrect as it was counting all comments (including comments from other posts). Fix - Set up a get_comments property in the blog model that returned a count of only the comments associated with the post. I also introduced the approval system for comments as prior to this all comments were automatically displayed which could lead to inappropriate comments and/or spam.</li>
-<li>Issue - Shop display on mobiles. I found that the products in the shop weren't displaying as I hoped on mobile devices. Fix - I used Javascript to atler classes based on the screen size.
+<li>Issue - Shop display on mobiles. I found that the products in the shop weren't displaying as I hoped on mobile devices. Fix - I used Javascript to alter classes based on the screen size.
 </ul>
 </summary>
 </details>
