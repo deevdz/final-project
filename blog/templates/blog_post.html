@@ -46,7 +46,7 @@
             <a href="{% url 'tagged' tag.slug %}" class="mr-1 badge badge-purple">#{{ tag }}</a>
            {% endfor %}
         </div>
-        <div class="post-nav mb-80">
+        <div class="post-nav mb-120">
           {% if previous_blog.status == 'published' %}
             <div class="prev-post">
               <a class="post-img" href="{% url 'blog_detail' previous_blog.slug %}"><img src="{{previous_blog.image.url}}" alt=""></a>
@@ -70,7 +70,7 @@
           </div>
           {% endif %}
         </div>
-        <div class="post-comments mt-40 ">
+        <div class="post-comments mt-20 ">
           <header class="post-comments-header">
             <h3>Post Comments<span class="no-of-comments"> ({{blog.get_comments.count}}) </span></h3>
           </header>

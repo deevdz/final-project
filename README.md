@@ -34,6 +34,18 @@ You can see the deployed version of the site [here](https://deevdz-final-project
 
 ## UX
 
+#### User Stories
+
+#### Typography
+
+Research was carried out on complimentary fonts and [Poppins](https://fonts.google.com/specimen/Poppins) and [Prata](https://fonts.google.com/specimen/Prata) were chosen for the site.
+
+#### Colour Scheme and Logo
+
+The studio is an established business so I am using the existing logo which I designed many years ago. I also have taken the existing colour scheme but extended it with the help of the [Coolors](https://coolors.co/392f23-7ab5a7-99b8d1-cecccc-9d6381) colour generator.
+#### Wireframes
+
+
 ## Features
 
 #### Existing Features
@@ -198,6 +210,11 @@ In conjunction with the automated testing the website was constantly tested duri
 <li>Confirmed that the correct map location is displaying</li>
 <li>Contact Form - if user not logged in they are required to enter Name, Email and Message. Confirmed that the email was sent and received. If user logged in the email address field is prepopulated. Sent a test email and confirmed that is worked as expected.</li>
 </ul>
+<h5>Shop Page</h5>
+<ul>
+<li>Check that the correct products are displaying under the correct headings - Gift Vouchers or classes. Make sure that if there are no products available to purchase under one of these headings that a suitable error message is displayed.</li>
+<li>Check that the add to cart button works as expected ie the correct information and price is added to the cart and that only logged in users can view the cart.</li>
+</ul>
 <h5>Account Pages</h5>
 <ul>
 <li>I have used the AllAuth App for my account management. I have confirmed that the sign up, login, logout, forgotten password, verifying account are all working as expected.</li>
@@ -224,6 +241,13 @@ In conjunction with the automated testing the website was constantly tested duri
 <ul>
 <li>Try going to <a href="https://deevdz-final-project.herokuapp.com/test" target="_blank">https://deevdz-final-project.herokuapp.com/test</a> and observe the custom 404 error.</li>
 <li>Confirmed that there was a working link back to the homepage and that links in the navigation are working on the 404 error page.</li>
+</ul>
+<h5>Issues and Fixes</h5>
+<ul>
+<li>Issue - had the search function working on the blog posts and then introduced the category count in the sidebar and found that the search was no longer working. Fix - Discovered that the order of the urls in the urls.py file is important. Once I updated the order of the urls my search worked again.</li>
+<li>Issue - Polymorphic Products, I wanted to include an available number of places on workshop products. This caused issues when I wanted to decrease places on purchase for the other product types. Fix - introduced a product type dropdown and then checked the product type. If the product type is workshop then decrease the places available by the correct amount. If the product type is not workshop then ignore the places available decrease and move on with the order.</li>
+<li>Issue - Removing items from the cart - I found that if I had more than one of a product type in the cart I had issues removing it from the cart. Fix - the remove from cart trashcan icon is only displayed when there is one of a product in the cart.</li>
+<li>Issue - Comment counts. I wanted each post to display the number of comments that were associated with a blog post but my count was incorrect as it was counting all comments (including comments from other posts). Fix - Set up a get_comments property in the blog model that returned a count of only the comments associated with the post. I also introduced the approval system for comments as prior to this all comments were automatically displayed which could lead to inappropriate comments and/or spam.</li>
 </ul>
 </summary>
 </details>

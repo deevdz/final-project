@@ -1249,6 +1249,9 @@ footer a:hover {
     margin-bottom: 80px;
 }
 
+.mb-120 {
+    margin-bottom:120px;
+}
 /*-----Mobile and Tablet Styles-----*/
 
 @media (max-width: 768px ) {
