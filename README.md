@@ -30,9 +30,17 @@ A blog section was also created which allows the user to page through multiple p
 Additionally, the website allows users to submit an enquiry via the contact page. They will then get a reply to the email address they have indicated on the form, with a summary of their enquiry. Prior registration is not required to carry out this action.
 
 ## Site Demo
-You can see the deployed version of the site [here](https://deevdz-final-project.herokuapp.com/).
+You can see the deployed version of the site [here](https://deevdz-final-project.herokuapp.com/). Link to the [Administration Dashboard](https://deevdz-final-project.herokuapp.com/admin/). 
+ ```
+Login details for admin panel are as follows:
 
+Username: testadmin. 
+Password: T3$t@dm1n! 
+Email: test@test.com
+ ```
 ## UX
+
+#### Initial Planning
 
 Documentation for the initial planning process can be [found here](https://github.com/deevdz/final-project/blob/master/planning/Yoga%20Studio%20Website%20-%20Initial%20Thoughts.pdf)
 
