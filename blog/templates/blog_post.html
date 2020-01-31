@@ -9,7 +9,7 @@
           <div class="col-md-12">
             <div class="post-category">
                 {% for cat in blog.categories.all %}
-                    <a href="{% url 'list_blog_by_category' cat.slug %}">{{cat.title}}</a>, 
+                    <a href="{% url 'list_blog_by_category' cat.slug %}">{{cat.title}}</a>
                 {% endfor %}
               </div>
           <h1>{{blog.title}}</h1>
