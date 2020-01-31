@@ -34,6 +34,8 @@ You can see the deployed version of the site [here](https://deevdz-final-project
 
 ## UX
 
+Documentation for the initial planning process can be [found here]()
+
 #### User Stories
 
 * As a user - I am immediately aware what the nature of the site is and its purpose
@@ -53,7 +55,6 @@ You can see the deployed version of the site [here](https://deevdz-final-project
 * As a user - I can see the number of approved comments associated with a blog post
 * As a user - I can see how many times a blog post has been viewed
 * As a user - I can view previous orders I have made.
-* As a user - I am able to see the details of the recipe
 * As a user - I am able to page through blog posts if there are more than 4 posts
 * As a user - I am able to contact the site administrator through a contact form and may or may not be a logged in user
 * As an administrator - I can add, update and delete blog posts
