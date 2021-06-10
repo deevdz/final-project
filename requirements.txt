@@ -1,6 +1,6 @@
 boto3==1.10.28
 botocore==1.13.28
-Django==1.11
+Django==2.2.24
 django-tinymce4-lite==1.7.4
 django-forms-bootstrap==3.1.0
 django-crispy-forms==1.8.0
